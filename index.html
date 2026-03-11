@@ -4,17 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flores de los Lagos</title>
+  <meta
+    name="description"
+    content="Premium flowers from Southern Chile. Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail floral programs."
+  />
   <style>
     :root{
       --bg:#faf7f3;
+      --bg-soft:#f6eff7;
       --card:#ffffff;
       --text:#2f2434;
       --muted:#6f6475;
       --purple:#7b3f8e;
       --purple-dark:#5f2a70;
+      --purple-soft:#eadfea;
       --sage:#8b9f5c;
       --line:#eadfea;
-      --shadow:0 16px 42px rgba(75,40,90,.08);
+      --shadow:0 18px 44px rgba(75,40,90,.08);
       --radius:24px;
       --max:1180px;
     }
@@ -25,9 +31,8 @@
       margin:0;
       font-family:Inter,Arial,sans-serif;
       color:var(--text);
-      background:linear-gradient(180deg,#fcfaf6 0%,#f7f1f8 100%);
+      background:linear-gradient(180deg,#fcfaf6 0%,#f8f2f8 100%);
     }
-
     img{display:block;max-width:100%}
     a{color:inherit}
 
@@ -40,9 +45,9 @@
     .topbar{
       position:sticky;
       top:0;
-      z-index:50;
-      background:rgba(250,247,243,.92);
-      backdrop-filter:blur(10px);
+      z-index:100;
+      background:rgba(250,247,243,.9);
+      backdrop-filter:blur(12px);
       border-bottom:1px solid var(--line);
     }
 
@@ -50,23 +55,37 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:16px;
+      gap:18px;
       flex-wrap:wrap;
       padding:16px 0;
     }
 
-    .brand small{
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      background:radial-gradient(circle at 35% 35%, #c88ed8 0%, #8f52a3 50%, #6a357d 100%);
+      box-shadow:0 8px 20px rgba(123,63,142,.22);
+    }
+
+    .brand-text small{
       display:block;
+      color:var(--muted);
       font-size:12px;
-      text-transform:uppercase;
       letter-spacing:2px;
-      font-weight:700;
-      color:var(--purple);
+      text-transform:uppercase;
       margin-bottom:4px;
     }
 
-    .brand strong{
-      font:700 34px/1 Georgia,"Times New Roman",serif;
+    .brand-text strong{
+      display:block;
+      font:700 31px/1 Georgia,"Times New Roman",serif;
       color:var(--purple-dark);
     }
 
@@ -81,6 +100,7 @@
       text-decoration:none;
       color:var(--muted);
       font-size:15px;
+      transition:.2s ease;
     }
 
     nav a:hover{color:var(--purple)}
@@ -101,6 +121,7 @@
       border-radius:999px;
       font-weight:700;
       cursor:pointer;
+      color:var(--text);
     }
 
     .lang button.active{
@@ -108,44 +129,50 @@
       color:#fff;
     }
 
-    .hero{padding:52px 0 24px}
+    .hero{
+      padding:64px 0 30px;
+    }
 
-    .badge{
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .eyebrow{
       display:inline-block;
-      background:var(--purple);
-      color:#fff;
-      padding:10px 18px;
-      border-radius:999px;
+      color:var(--sage);
       font-size:12px;
+      letter-spacing:2px;
       text-transform:uppercase;
-      letter-spacing:1.6px;
       font-weight:700;
-      margin-bottom:22px;
+      margin-bottom:18px;
     }
 
     h1,h2,h3,h4{
       margin:0;
       font-family:Georgia,"Times New Roman",serif;
+      font-weight:700;
     }
 
     h1{
-      font-size:clamp(52px,8vw,82px);
+      font-size:clamp(52px,8vw,84px);
       line-height:.95;
       color:var(--purple-dark);
-      margin-bottom:10px;
+      margin-bottom:14px;
     }
 
     .hero-sub{
-      font-size:clamp(30px,4vw,46px);
-      line-height:1.06;
+      font:400 clamp(28px,4vw,44px)/1.08 Georgia,"Times New Roman",serif;
+      color:var(--text);
       margin-bottom:18px;
-      font-family:Georgia,"Times New Roman",serif;
     }
 
     .hero-text{
-      max-width:920px;
+      max-width:720px;
       font-size:20px;
-      line-height:1.7;
+      line-height:1.75;
       color:var(--muted);
       margin-bottom:28px;
     }
@@ -154,7 +181,7 @@
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-bottom:34px;
+      margin-bottom:32px;
     }
 
     .btn{
@@ -163,17 +190,52 @@
       font-weight:700;
       padding:14px 18px;
       border-radius:14px;
+      transition:.2s ease;
     }
 
     .btn-primary{
       background:var(--purple);
       color:#fff;
+      box-shadow:0 12px 24px rgba(123,63,142,.18);
     }
 
+    .btn-primary:hover{transform:translateY(-1px)}
     .btn-secondary{
       background:#fff;
       color:var(--purple);
       border:1px solid var(--purple);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg,#fff 0%,#f7f1f8 100%);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .hero-image{
+      border-radius:22px;
+      overflow:hidden;
+      height:220px;
+      background:#f3edf5;
+    }
+
+    .hero-image.tall{
+      grid-column:1 / span 2;
+      height:250px;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
     .grid4,.grid3,.grid2,.contacts{
@@ -183,7 +245,7 @@
 
     .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
     .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid2{grid-template-columns:1.05fr .95fr}
+    .grid2{grid-template-columns:1.02fr .98fr}
     .contacts{grid-template-columns:repeat(2,minmax(0,1fr))}
 
     .card{
@@ -192,6 +254,10 @@
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:24px;
+    }
+
+    .stats{
+      margin-top:28px;
     }
 
     .stat-label,.flower-meta{
@@ -211,28 +277,64 @@
 
     .stat-sub,.section-text,.flower-text{
       font-size:16px;
-      line-height:1.7;
+      line-height:1.75;
       color:var(--muted);
     }
 
-    section{padding:76px 0 8px}
-
-    .eyebrow{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      font-weight:700;
-      color:var(--sage);
-      margin-bottom:10px;
+    section{
+      padding:86px 0 10px;
     }
 
     .section-title{
-      font-size:clamp(34px,5vw,48px);
-      line-height:1.05;
-      margin-bottom:22px;
+      font-size:clamp(34px,5vw,50px);
+      line-height:1.04;
+      margin-bottom:18px;
+      color:var(--purple-dark);
     }
 
-    .map-frame{
+    .section-copy{
+      max-width:920px;
+      font-size:18px;
+      line-height:1.8;
+      color:var(--muted);
+      margin-bottom:26px;
+    }
+
+    .flower-card,.status-card{
+      padding:0;
+      overflow:hidden;
+    }
+
+    .flower-image{
+      height:300px;
+      background:#f6f1f7;
+    }
+
+    .flower-image img,
+    .status-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .flower-copy{
+      padding:20px;
+    }
+
+    .flower-title{
+      font-size:30px;
+      margin-bottom:10px;
+      color:var(--purple-dark);
+    }
+
+    .flower-note{
+      margin-top:14px;
+      color:var(--purple);
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .map-block{
       background:#fff;
       border:1px solid var(--line);
       border-radius:28px;
@@ -240,9 +342,10 @@
       box-shadow:var(--shadow);
     }
 
-    .map-frame img{
+    .map-block img{
       width:100%;
       border-radius:20px;
+      margin-top:18px;
     }
 
     .pill{
@@ -255,43 +358,8 @@
       margin-top:16px;
     }
 
-    .flower-card,.status-card{
-      padding:0;
-      overflow:hidden;
-    }
-
-    .flower-img-wrap{
-      height:280px;
-      background:#f8f3fa;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .flower-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .flower-copy{padding:20px}
-
-    .flower-title{
-      font-size:28px;
-      margin-bottom:8px;
-    }
-
-    .flower-note{
-      margin-top:12px;
-      color:var(--purple);
-      font-weight:700;
-      font-size:14px;
-    }
-
     .status-card img{
-      width:100%;
-      height:300px;
-      object-fit:cover;
+      height:310px;
     }
 
     .status-label{
@@ -312,12 +380,14 @@
     .contact-top{
       opacity:.82;
       margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:1.4px;
+      font-size:12px;
     }
 
     .contact-name{
-      font-size:30px;
+      font-size:32px;
       margin-bottom:8px;
-      font-family:Georgia,"Times New Roman",serif;
     }
 
     .contact-phone{
@@ -325,22 +395,19 @@
       font-weight:700;
     }
 
-    footer{
-      padding:28px 22px 54px;
-      text-align:center;
+    .footer{
+      padding:34px 0 56px;
+      margin-top:40px;
+      border-top:1px solid var(--line);
       color:var(--muted);
       font-size:14px;
-    }
-
-    .divider{
-      height:1px;
-      background:var(--line);
-      margin-top:28px;
+      text-align:center;
     }
 
     @media (max-width:980px){
-      .grid4,.grid3,.grid2,.contacts{grid-template-columns:1fr}
+      .hero-grid,.grid4,.grid3,.grid2,.contacts{grid-template-columns:1fr}
       .topbar-inner{align-items:flex-start}
+      .hero-image.tall{grid-column:auto}
     }
   </style>
 </head>
@@ -348,8 +415,11 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <small id="topBadge">Sitio web real con fotos y mapa</small>
-        <strong>Flores de los Lagos</strong>
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <small id="brandTag">Southern Chile</small>
+          <strong>Flores de los Lagos</strong>
+        </div>
       </div>
 
       <nav>
@@ -369,20 +439,38 @@
 
   <main class="container">
     <section class="hero">
-      <div class="badge" id="heroBadge">Sitio web real con fotos y mapa</div>
-      <h1 id="heroTitle1">Flores de los Lagos</h1>
-      <div class="hero-sub" id="heroTitle2">Flores premium del sur de Chile</div>
-      <div class="hero-text" id="heroText">
-        Peonías, ranúnculos y anémonas cultivadas en Osorno, con sitio bilingüe,
-        mapa real desde el PPT y fotos actuales del campo incorporadas dentro de la página.
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow" id="heroEyebrow">Premium floral production</div>
+          <h1 id="heroTitle1">Flores de los Lagos</h1>
+          <div class="hero-sub" id="heroTitle2">Flores premium del sur de Chile</div>
+          <div class="hero-text" id="heroText">
+            Peonías, ranúnculos y anémonas cultivadas en Osorno para importadores,
+            wholesalers y programas retail que buscan calidad, identidad y abastecimiento de contraestación.
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#flowers" id="cta1">Ver colección</a>
+            <a class="btn btn-secondary" href="#contact" id="cta2">Contactar</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-grid">
+            <div class="hero-image">
+              <img src="peonia-sarah.jpg" alt="Sarah Bernhardt peony" />
+            </div>
+            <div class="hero-image">
+              <img src="peonia-jacorma.jpg" alt="Jacorma peony" />
+            </div>
+            <div class="hero-image tall">
+              <img src="flores-mixtas.jpg" alt="Premium flowers from Flores de los Lagos" />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="#flowers" id="cta1">Ver colección</a>
-        <a class="btn btn-secondary" href="#contact" id="cta2">Ver contactos</a>
-      </div>
-
-      <div class="grid4">
+      <div class="grid4 stats">
         <article class="card">
           <div class="stat-label" id="stat1Label">Superficie actual</div>
           <div class="stat-value" id="stat1Value">5,0 ha</div>
@@ -403,31 +491,31 @@
 
         <article class="card">
           <div class="stat-label" id="stat4Label">Idiomas</div>
-          <div class="stat-value" id="stat4Value">🇨🇱 🇺🇸</div>
-          <div class="stat-sub" id="stat4Sub">selector real español / inglés</div>
+          <div class="stat-value" id="stat4Value">ES / EN</div>
+          <div class="stat-sub" id="stat4Sub">presentación bilingüe</div>
         </article>
       </div>
     </section>
 
     <section id="story">
-      <div class="eyebrow" id="storyEyebrow">Nuestra propuesta</div>
+      <div class="eyebrow" id="storyEyebrow">About</div>
       <h2 class="section-title" id="storyTitle">Producción premium desde el sur de Chile</h2>
-      <div class="section-text" id="storyText">
-        El proyecto está ubicado en Osorno, en la Región de Los Lagos. La web ya incorpora
-        contenido real: fotos de flores desde su presentación, mapa de ubicación del PPT y fotos
-        actuales del campo. El objetivo es escalar desde 5,0 hectáreas plantadas hoy hasta
-        50,0 hectáreas, con foco en calidad premium y abastecimiento de contraestación.
+      <div class="section-copy" id="storyText">
+        Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado,
+        calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium.
+        El objetivo es escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas,
+        manteniendo una propuesta enfocada en calidad, consistencia y valor comercial.
       </div>
     </section>
 
     <section id="flowers">
-      <div class="eyebrow" id="flowersEyebrow">Colección real</div>
-      <h2 class="section-title" id="flowersTitle">Flores con imágenes reales de su material</h2>
+      <div class="eyebrow" id="flowersEyebrow">Collection</div>
+      <h2 class="section-title" id="flowersTitle">Variedades principales</h2>
 
       <div class="grid3">
         <article class="card flower-card">
-          <div class="flower-img-wrap">
-            <img src="flor-1.jpg" alt="Sarah Bernhardt" />
+          <div class="flower-image">
+            <img src="peonia-sarah.jpg" alt="Sarah Bernhardt" />
           </div>
           <div class="flower-copy">
             <div class="flower-meta" id="f1Meta">Peonía</div>
@@ -440,8 +528,8 @@
         </article>
 
         <article class="card flower-card">
-          <div class="flower-img-wrap">
-            <img src="flor-2.jpg" alt="Jacorma" />
+          <div class="flower-image">
+            <img src="peonia-jacorma.jpg" alt="Jacorma" />
           </div>
           <div class="flower-copy">
             <div class="flower-meta" id="f2Meta">Peonía</div>
@@ -454,8 +542,8 @@
         </article>
 
         <article class="card flower-card">
-          <div class="flower-img-wrap">
-            <img src="flor-3.jpg" alt="Elegance y Mistral" />
+          <div class="flower-image">
+            <img src="flores-mixtas.jpg" alt="Ranunculus and anemones" />
           </div>
           <div class="flower-copy">
             <div class="flower-meta" id="f3Meta">Ranunculus & Anémona</div>
@@ -470,60 +558,56 @@
     </section>
 
     <section id="location">
-      <div class="eyebrow" id="locEyebrow">Ubicación real</div>
-      <h2 class="section-title" id="locTitle">Mapa tomado desde su PPT</h2>
+      <div class="eyebrow" id="locEyebrow">Location</div>
+      <h2 class="section-title" id="locTitle">Osorno, Southern Chile</h2>
 
       <div class="grid2">
         <article class="card">
           <div class="section-text" id="locText">
-            Aquí se incorporó el mapa real de la diapositiva “Where is Osorno?” de su presentación.
-            Se muestra Santiago, Osorno y la referencia de 950 km / 590 millas entre ambas ciudades,
-            junto con la ubicación en el sur de Chile dentro de Sudamérica.
+            Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago,
+            en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar
+            una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.
           </div>
           <div class="pill" id="locPill">Santiago ↔ Osorno • 950 km / 590 miles</div>
         </article>
 
-        <div class="map-frame">
-          <img src="mapa-osorno.jpg" alt="Mapa Where is Osorno" />
+        <div class="map-block">
+          <img src="mapa-osorno.jpg" alt="Map showing Santiago and Osorno in Chile" />
         </div>
       </div>
     </section>
 
     <section id="status">
       <div class="eyebrow" id="statusEyebrow">Current Status</div>
-      <h2 class="section-title" id="statusTitle">Fotos actuales del campo</h2>
-      <div class="section-text" id="statusText">
-        Esta sección usa las fotos reales extraídas de la presentación para mostrar el estado actual del campo y del desarrollo del proyecto.
+      <h2 class="section-title" id="statusTitle">Estado actual del campo</h2>
+      <div class="section-copy" id="statusText">
+        Avance actual del proyecto y vistas del campo en desarrollo.
       </div>
-
-      <div style="height:20px"></div>
 
       <div class="grid3">
         <article class="card status-card">
-          <img src="flor-1.jpg" alt="Vista actual 1" />
+          <img src="current-status-1.jpg" alt="Current field status 1" />
           <div class="status-label" id="s1">Vista actual 1</div>
         </article>
 
         <article class="card status-card">
-          <img src="flor-2.jpg" alt="Vista actual 2" />
+          <img src="current-status-2.jpg" alt="Current field status 2" />
           <div class="status-label" id="s2">Vista actual 2</div>
         </article>
 
         <article class="card status-card">
-          <img src="flor-3.jpg" alt="Vista actual 3" />
+          <img src="current-status-3.jpg" alt="Current field status 3" />
           <div class="status-label" id="s3">Vista actual 3</div>
         </article>
       </div>
     </section>
 
     <section id="contact">
-      <div class="eyebrow" id="contactEyebrow">Contacto</div>
+      <div class="eyebrow" id="contactEyebrow">Contact</div>
       <h2 class="section-title" id="contactTitle">Contactos comerciales</h2>
-      <div class="section-text" id="contactText">
+      <div class="section-copy" id="contactText">
         Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.
       </div>
-
-      <div style="height:20px"></div>
 
       <div class="contacts">
         <article class="card contactA">
@@ -540,28 +624,26 @@
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="footer" id="footerText">
+      Flores de los Lagos · Osorno, Chile
+    </div>
   </main>
-
-  <footer id="footerText">
-    Versión bilingüe real con cambio completo de idioma, mapa real del PPT y fotos reales integradas.
-  </footer>
 
   <script>
     const content = {
       es: {
-        topBadge: "Sitio web real con fotos y mapa",
+        brandTag: "Southern Chile",
         navStory: "Historia",
         navFlowers: "Flores",
         navLocation: "Ubicación",
         navStatus: "Estado actual",
         navContact: "Contacto",
-        heroBadge: "Sitio web real con fotos y mapa",
+        heroEyebrow: "Premium floral production",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Flores premium del sur de Chile",
-        heroText: "Peonías, ranúnculos y anémonas cultivadas en Osorno, con sitio bilingüe, mapa real desde el PPT y fotos actuales del campo incorporadas dentro de la página.",
+        heroText: "Peonías, ranúnculos y anémonas cultivadas en Osorno para importadores, wholesalers y programas retail que buscan calidad, identidad y abastecimiento de contraestación.",
         cta1: "Ver colección",
-        cta2: "Ver contactos",
+        cta2: "Contactar",
         stat1Label: "Superficie actual",
         stat1Value: "5,0 ha",
         stat1Sub: "plantadas hoy",
@@ -572,13 +654,13 @@
         stat3Value: "Osorno",
         stat3Sub: "950 km / 590 millas desde Santiago",
         stat4Label: "Idiomas",
-        stat4Value: "🇨🇱 🇺🇸",
-        stat4Sub: "selector real español / inglés",
-        storyEyebrow: "Nuestra propuesta",
+        stat4Value: "ES / EN",
+        stat4Sub: "presentación bilingüe",
+        storyEyebrow: "About",
         storyTitle: "Producción premium desde el sur de Chile",
-        storyText: "El proyecto está ubicado en Osorno, en la Región de Los Lagos. La web ya incorpora contenido real: fotos de flores desde su presentación, mapa de ubicación del PPT y fotos actuales del campo. El objetivo es escalar desde 5,0 hectáreas plantadas hoy hasta 50,0 hectáreas, con foco en calidad premium y abastecimiento de contraestación.",
-        flowersEyebrow: "Colección real",
-        flowersTitle: "Flores con imágenes reales de su material",
+        storyText: "Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado, calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium. El objetivo es escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas, manteniendo una propuesta enfocada en calidad, consistencia y valor comercial.",
+        flowersEyebrow: "Collection",
+        flowersTitle: "Variedades principales",
         f1Meta: "Peonía",
         f1Title: "Sarah Bernhardt",
         f1Text: "Variedad clásica premium, altamente valorada para bodas, diseño floral y programas de alto nivel.",
@@ -591,34 +673,34 @@
         f3Title: "Elegance® / Mistral® Plus",
         f3Text: "Serie premium de gran uniformidad, múltiples colores y excelente presentación comercial.",
         f3Note: "2027: 405.000 + 135.000 stems",
-        locEyebrow: "Ubicación real",
-        locTitle: "Mapa tomado desde su PPT",
-        locText: "Aquí se incorporó el mapa real de la diapositiva “Where is Osorno?” de su presentación. Se muestra Santiago, Osorno y la referencia de 950 km / 590 millas entre ambas ciudades, junto con la ubicación en el sur de Chile dentro de Sudamérica.",
+        locEyebrow: "Location",
+        locTitle: "Osorno, Southern Chile",
+        locText: "Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago, en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.",
         locPill: "Santiago ↔ Osorno • 950 km / 590 miles",
         statusEyebrow: "Current Status",
-        statusTitle: "Fotos actuales del campo",
-        statusText: "Esta sección usa las fotos reales extraídas de la presentación para mostrar el estado actual del campo y del desarrollo del proyecto.",
+        statusTitle: "Estado actual del campo",
+        statusText: "Avance actual del proyecto y vistas del campo en desarrollo.",
         s1: "Vista actual 1",
         s2: "Vista actual 2",
         s3: "Vista actual 3",
-        contactEyebrow: "Contacto",
+        contactEyebrow: "Contact",
         contactTitle: "Contactos comerciales",
         contactText: "Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.",
-        footerText: "Versión bilingüe real con cambio completo de idioma, mapa real del PPT y fotos reales integradas."
+        footerText: "Flores de los Lagos · Osorno, Chile"
       },
       en: {
-        topBadge: "Real website with photos and map",
+        brandTag: "Southern Chile",
         navStory: "Story",
         navFlowers: "Flowers",
         navLocation: "Location",
         navStatus: "Current status",
         navContact: "Contact",
-        heroBadge: "Real website with photos and map",
+        heroEyebrow: "Premium floral production",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Premium flowers from Southern Chile",
-        heroText: "Peonies, ranunculus and anemones grown in Osorno, with a bilingual site, the real map taken from the PPT, and current field photos integrated into the page.",
+        heroText: "Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail programs seeking quality, identity and counter-seasonal supply.",
         cta1: "View collection",
-        cta2: "View contacts",
+        cta2: "Contact us",
         stat1Label: "Current footprint",
         stat1Value: "5.0 ha",
         stat1Sub: "planted today",
@@ -629,39 +711,39 @@
         stat3Value: "Osorno",
         stat3Sub: "950 km / 590 miles from Santiago",
         stat4Label: "Languages",
-        stat4Value: "🇺🇸 🇨🇱",
-        stat4Sub: "true Spanish / English switch",
-        storyEyebrow: "Our positioning",
+        stat4Value: "ES / EN",
+        stat4Sub: "bilingual presentation",
+        storyEyebrow: "About",
         storyTitle: "Premium production from Southern Chile",
-        storyText: "The project is located in Osorno, in Chile’s Los Lagos Region. The site now includes real content: flower photos from your presentation, the location map from the PPT, and current field photos. The goal is to scale from 5.0 hectares planted today to 50.0 hectares, focused on premium quality and counter-seasonal supply.",
-        flowersEyebrow: "Real collection",
-        flowersTitle: "Flowers using actual images from your material",
+        storyText: "Located in Osorno, in Chile’s Los Lagos Region, our project combines climate, growing quality and long-term vision to serve international markets with premium flowers. The goal is to scale from 5.0 hectares planted today to 50.0 hectares while maintaining a proposition focused on quality, consistency and commercial value.",
+        flowersEyebrow: "Collection",
+        flowersTitle: "Main varieties",
         f1Meta: "Peony",
         f1Title: "Sarah Bernhardt",
         f1Text: "Classic premium variety, highly valued for weddings, floral design and high-end programs.",
         f1Note: "2027: 360,000 stems",
         f2Meta: "Peony",
         f2Title: "Jacorma",
-        f2Text: "Strong color and excellent commercial presence for a differentiated premium proposal.",
+        f2Text: "Strong color and excellent commercial presence for a differentiated premium proposition.",
         f2Note: "2027: 45,000 stems",
         f3Meta: "Ranunculus & Anemone",
         f3Title: "Elegance® / Mistral® Plus",
         f3Text: "Premium series with strong uniformity, multiple colors and excellent commercial presentation.",
         f3Note: "2027: 405,000 + 135,000 stems",
-        locEyebrow: "Real location",
-        locTitle: "Map taken from your PPT",
-        locText: "The real map from the “Where is Osorno?” slide in your presentation was integrated here. It shows Santiago, Osorno, and the 950 km / 590 miles reference between both cities, together with the southern Chile location inside South America.",
+        locEyebrow: "Location",
+        locTitle: "Osorno, Southern Chile",
+        locText: "Our production is located in Osorno, 950 km south of Santiago, in one of Chile’s most attractive agricultural regions. This location supports a differentiated premium flower proposition with origin identity and export potential.",
         locPill: "Santiago ↔ Osorno • 950 km / 590 miles",
         statusEyebrow: "Current Status",
-        statusTitle: "Current field photos",
-        statusText: "This section uses the real photos extracted from the presentation to show the current field status and project development.",
+        statusTitle: "Current field status",
+        statusText: "Current project progress and field views.",
         s1: "Current view 1",
         s2: "Current view 2",
         s3: "Current view 3",
         contactEyebrow: "Contact",
         contactTitle: "Commercial contacts",
         contactText: "For importers, distributors and potential commercial partners in Chile and the United States.",
-        footerText: "True bilingual version with full language switching, real PPT map, and integrated real photos."
+        footerText: "Flores de los Lagos · Osorno, Chile"
       }
     };
 
