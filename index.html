@@ -37,4 +37,507 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(250, 247, 243, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 18px 0;
+    }
+
+    .brand-small {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--purple);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--purple-dark);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .lang-btn.active {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .hero {
+      padding: 50px 0 28px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 8vw, 78px);
+      line-height: 0.95;
+      color: var(--purple-dark);
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero-text {
+      max-width: 950px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--purple);
+      border: 1px solid var(--purple);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .stat-value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 44px;
+      color: var(--purple);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stat-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 70px 0 28px;
+    }
+
+    .eyebrow {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--sage);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 46px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .section-text {
+      max-width: 980px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .product-card {
+      min-height: 180px;
+    }
+
+    .product-emoji {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
+    .product-title {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .product-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .tone-1 { background: #f7ebf6; }
+    .tone-2 { background: #f5e4ed; }
+    .tone-3 { background: #fff4de; }
+    .tone-4 { background: #ece6f7; }
+
+    .map-placeholder {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, #eef4fb, #f8fbff);
+    }
+
+    .map-icon { font-size: 64px; margin-bottom: 12px; }
+    .pill {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: #f5eff8;
+      color: var(--purple);
+      font-weight: 700;
+      margin-top: 18px;
+    }
+
+    .photo-box {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .photo {
+      height: 220px;
+      display: grid;
+      place-items: center;
+      font-size: 56px;
+    }
+
+    .photo-1 { background: linear-gradient(135deg, #cfd9b6, #e6edd8); }
+    .photo-2 { background: linear-gradient(135deg, #d0e0ba, #f1f5e8); }
+    .photo-3 { background: linear-gradient(135deg, #d7ddc8, #f4f1e7); }
+
+    .photo-label {
+      padding: 18px;
+      font-weight: 700;
+    }
+
+    .contact-card-dark {
+      background: var(--purple-dark);
+      color: #fff;
+    }
+
+    .contact-card {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .contact-top {
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+
+    .contact-name {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .contact-phone {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 18px 24px 50px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .topbar-inner { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <div class="brand-small" id="top-badge">Sitio web real interactivo</div>
+        <div class="brand-name">Flores de los Lagos</div>
+      </div>
+
+      <nav>
+        <a href="#story" id="nav-story">Historia</a>
+        <a href="#products" id="nav-products">Flores</a>
+        <a href="#location" id="nav-location">Ubicación</a>
+        <a href="#status" id="nav-status">Estado actual</a>
+        <a href="#contact" id="nav-contact">Contacto</a>
+
+        <div class="lang-switch">
+          <button class="lang-btn active" id="btn-es" onclick="setLanguage('es')">🇨🇱 ES</button>
+          <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇺🇸 EN</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero">
+      <div class="badge" id="hero-badge">Sitio web real interactivo</div>
+      <h1 id="hero-title-1">Flores de los Lagos</h1>
+      <div class="hero-subtitle" id="hero-title-2">Flores premium del sur de Chile</div>
+      <div class="hero-text" id="hero-text">
+        Peonías, ranúnculos y anémonas cultivadas en Osorno, en el corazón del sur de Chile. Sitio comercial bilingüe para importadores, wholesalers y programas retail.
+      </div>
+
+      <div class="actions">
+        <a href="#products" class="btn btn-primary" id="cta-1">Ver colección</a>
+        <a href="#contact" class="btn btn-secondary" id="cta-2">Ver contactos</a>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <div class="stat-label" id="planted-label">Superficie actual</div>
+          <div class="stat-value" id="planted-value">5,0 ha</div>
+          <div class="stat-sub" id="planted-sub">plantadas hoy</div>
+        </div>
+        <div class="card">
+          <div class="stat-label" id="target-label">Meta</div>
+          <div class="stat-value" id="target-value">50,0 ha</div>
+          <div class="stat-sub" id="target-sub">expansión proyectada</div>
+        </div>
+        <div class="card">
+          <div class="stat-label" id="location-label">Ubicación</div>
+          <div class="stat-value" id="location-value">Osorno</div>
+          <div class="stat-sub" id="location-sub">950 km / 590 millas desde Santiago</div>
+        </div>
+        <div class="card">
+          <div class="stat-label" id="language-label">Idiomas</div>
+          <div class="stat-value" id="language-value">🇨🇱 🇺🇸</div>
+          <div class="stat-sub" id="language-sub">castellano e inglés</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="eyebrow" id="story-eyebrow">Nuestra propuesta</div>
+      <h2 class="section-title" id="story-title">Producción premium desde el sur de Chile</h2>
+      <div class="section-text" id="story-text">
+        Nuestro proyecto está ubicado en Osorno, aproximadamente a 950 km al sur de Santiago. Buscamos escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas, con foco en calidad premium, contraestación y abastecimiento confiable para mercados internacionales.
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="eyebrow" id="products-eyebrow">Colección</div>
+      <h2 class="section-title" id="products-title">Líneas principales</h2>
+      <div class="grid-4">
+        <div class="card product-card tone-1">
+          <div class="product-emoji">🌸</div>
+          <div class="product-title" id="p1-title">Peonía Sarah Bernhardt</div>
+          <div class="product-text" id="p1-text">Variedad clásica premium, altamente valorada para bodas y arreglos de alto nivel.</div>
+        </div>
+        <div class="card product-card tone-2">
+          <div class="product-emoji">🌸</div>
+          <div class="product-title" id="p2-title">Peonía Jacorma</div>
+          <div class="product-text" id="p2-text">Variedad de color intenso y muy buena presencia comercial.</div>
+        </div>
+        <div class="card product-card tone-3">
+          <div class="product-emoji">🌼</div>
+          <div class="product-title" id="p3-title">Ranunculus Elegance®</div>
+          <div class="product-text" id="p3-text">Serie premium de gran uniformidad, múltiples colores y excelente presentación.</div>
+        </div>
+        <div class="card product-card tone-4">
+          <div class="product-emoji">🌺</div>
+          <div class="product-title" id="p4-title">Anémona Mistral® Plus</div>
+          <div class="product-text" id="p4-text">Flor expresiva y elegante, ideal para programas diferenciados.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="eyebrow" id="map-eyebrow">Ubicación</div>
+      <h2 class="section-title" id="map-title">Santiago y Osorno</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-text" id="map-text">
+            Aquí debe ir el mapa tomado desde la diapositiva “Where is Osorno?” del PPT. En esta versión ya queda listo el sitio real con cambio completo de idioma; después reemplazamos este bloque por el mapa definitivo.
+          </div>
+          <div class="pill">Santiago ↔ Osorno • 950 km / 590 miles</div>
+        </div>
+        <div class="card map-placeholder">
+          <div>
+            <div class="map-icon">🗺️</div>
+            <div class="product-title" id="map-placeholder-title">Mapa “Where is Osorno?”</div>
+            <div class="product-text" id="map-placeholder-text">Bloque temporal para el reemplazo visual final del mapa del PPT.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="status">
+      <div class="eyebrow" id="status-eyebrow">Current Status</div>
+      <h2 class="section-title" id="status-title">Estado actual del campo</h2>
+      <div class="section-text" id="status-text">
+        Esta sección está pensada para mostrar las fotos actuales del campo extraídas desde la presentación. Aquí queda lista la estructura real del sitio, y después reemplazamos estos bloques por las fotos definitivas.
+      </div>
+      <div style="height:20px"></div>
+      <div class="grid-3">
+        <div class="photo-box">
+          <div class="photo photo-1">📷</div>
+          <div class="photo-label" id="status-1">Vista actual 1</div>
+        </div>
+        <div class="photo-box">
+          <div class="photo photo-2">📷</div>
+          <div class="photo-label" id="status-2">Vista actual 2</div>
+        </div>
+        <div class="photo-box">
+          <div class="photo photo-3">📷</div>
+          <div class="photo-label" id="status-3">Vista actual 3</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="eyebrow" id="contact-eyebrow">Contacto</div>
+      <h2 class="section-title" id="contact-title">Contactos comerciales</h2>
+      <div class="section-text" id="contact-text">
+        Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.
+      </div>
+      <div style="height:20px"></div>
+      <div class="grid-2" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card contact-card-dark">
+          <div class="contact-top">Chile / USA</div>
+          <div class="contact-name">José Ignacio Gallardo</div>
+          <div class="contact-phone">+56 9 9331 7224</div>
+        </div>
+        <div class="card contact-card">
+          <div class="contact-top">Chile / USA</div>
+          <div class="contact-name">Enrique Covarrubias</div>
+          <div class="contact-phone">+56 9 8501 2942</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer-text">Versión bilingüe real. El selector cambia toda la página.</footer>
+
+  <script>
+    const content = {
+      es: {
+        topBadge: "Sitio web real interactivo",
+        navStory: "Historia",
+        navProducts: "Flores",
+        navLocation: "Ubicación",
+        navStatus: "Estado actual",
+        navContact: "Contacto",
+        heroTitle1: "Flores de los Lagos",
+        heroTitle2: "Flores premium del sur de Chile",
+        heroText: "Peonías, ranúnculos y anémonas cultivadas en Osorno, en el corazón del sur de Chile. Sitio comercial bilingüe para importadores, wholesalers y programas retail.",
+        cta1: "Ver colección",
+        cta2: "Ver contactos",
+        plantedLabel: "Superficie actual",
+        plantedValue: "5,0 ha",
+        plantedSub: "plantadas hoy",
+        targetLabel: "Meta",
+        targetValue: "50,0 ha",
+        targetSub: "expansión proyectada",
