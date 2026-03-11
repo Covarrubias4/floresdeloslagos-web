@@ -1,277 +1,40 @@
-import React, { useMemo, useState } from "react";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flores de los Lagos</title>
+  <style>
+    :root {
+      --bg: #faf7f3;
+      --card: #ffffff;
+      --text: #2f2434;
+      --muted: #6f6475;
+      --purple: #7b3f8e;
+      --purple-dark: #5f2a70;
+      --sage: #8b9f5c;
+      --line: #eadfea;
+      --shadow: 0 14px 40px rgba(75, 40, 90, 0.06);
+      --radius: 24px;
+      --max: 1200px;
+    }
 
-const colors = {
-  bg: "#faf7f3",
-  card: "#ffffff",
-  text: "#2f2434",
-  muted: "#6f6475",
-  purple: "#7b3f8e",
-  purpleDark: "#5f2a70",
-  sage: "#8b9f5c",
-  line: "#eadfea",
-};
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-const t = {
-  es: {
-    badge: "Sitio web real interactivo",
-    navStory: "Historia",
-    navProducts: "Flores",
-    navLocation: "Ubicación",
-    navStatus: "Estado actual",
-    navContact: "Contacto",
-    heroTitle1: "Flores de los Lagos",
-    heroTitle2: "Flores premium del sur de Chile",
-    heroText:
-      "Peonías, ranúnculos y anémonas cultivadas en Osorno, en el corazón del sur de Chile. Sitio comercial bilingüe para importadores, wholesalers y programas retail.",
-    cta1: "Ver colección",
-    cta2: "Ver contactos",
-    plantedLabel: "Superficie actual",
-    plantedValue: "5,0 ha",
-    plantedSub: "plantadas hoy",
-    targetLabel: "Meta",
-    targetValue: "50,0 ha",
-    targetSub: "expansión proyectada",
-    locationLabel: "Ubicación",
-    locationValue: "Osorno",
-    locationSub: "950 km / 590 millas desde Santiago",
-    languageLabel: "Idiomas",
-    languageSub: "castellano e inglés",
-    storyEyebrow: "Nuestra propuesta",
-    storyTitle: "Producción premium desde el sur de Chile",
-    storyText:
-      "Nuestro proyecto está ubicado en Osorno, aproximadamente a 950 km al sur de Santiago. Buscamos escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas, con foco en calidad premium, contraestación y abastecimiento confiable para mercados internacionales.",
-    productsEyebrow: "Colección",
-    productsTitle: "Líneas principales",
-    peony1: "Peonía Sarah Bernhardt",
-    peony1Text: "Variedad clásica premium, altamente valorada para bodas y arreglos de alto nivel.",
-    peony2: "Peonía Jacorma",
-    peony2Text: "Variedad de color intenso y muy buena presencia comercial.",
-    ranunculus: "Ranunculus Elegance®",
-    ranunculusText: "Serie premium de gran uniformidad, múltiples colores y excelente presentación.",
-    anemone: "Anémona Mistral® Plus",
-    anemoneText: "Flor expresiva y elegante, ideal para programas diferenciados.",
-    locationEyebrow: "Ubicación",
-    locationTitle: "Santiago y Osorno",
-    locationText:
-      "Aquí debe ir el mapa tomado desde la diapositiva “Where is Osorno?” del PPT. En esta vista previa se deja un bloque de referencia para el reemplazo visual final.",
-    statusEyebrow: "Current Status",
-    statusTitle: "Estado actual del campo",
-    statusText:
-      "Esta sección está pensada para mostrar las fotos actuales del campo extraídas desde la presentación, no una imagen única fija. Cada tarjeta puede reemplazarse por las fotos reales del predio.",
-    status1: "Vista actual 1",
-    status2: "Vista actual 2",
-    status3: "Vista actual 3",
-    contactEyebrow: "Contacto",
-    contactTitle: "Contactos comerciales",
-    contactText:
-      "Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.",
-    footer: "Versión bilingüe real. El selector cambia toda la página.",
-  },
-  en: {
-    badge: "Real interactive website",
-    navStory: "Story",
-    navProducts: "Flowers",
-    navLocation: "Location",
-    navStatus: "Current status",
-    navContact: "Contact",
-    heroTitle1: "Flores de los Lagos",
-    heroTitle2: "Premium flowers from Southern Chile",
-    heroText:
-      "Peonies, ranunculus and anemones grown in Osorno, in the heart of Southern Chile. Bilingual commercial website for importers, wholesalers and retail programs.",
-    cta1: "View collection",
-    cta2: "View contacts",
-    plantedLabel: "Current footprint",
-    plantedValue: "5.0 ha",
-    plantedSub: "planted today",
-    targetLabel: "Target",
-    targetValue: "50.0 ha",
-    targetSub: "projected expansion",
-    locationLabel: "Location",
-    locationValue: "Osorno",
-    locationSub: "950 km / 590 miles from Santiago",
-    languageLabel: "Languages",
-    languageSub: "Spanish and English",
-    storyEyebrow: "Our positioning",
-    storyTitle: "Premium production from Southern Chile",
-    storyText:
-      "Our project is located in Osorno, around 950 km south of Santiago. We aim to scale from 5.0 hectares currently planted to 50.0 hectares, focused on premium quality, counter-seasonal supply and dependable international programs.",
-    productsEyebrow: "Collection",
-    productsTitle: "Main lines",
-    peony1: "Sarah Bernhardt Peony",
-    peony1Text: "Classic premium variety, highly valued for weddings and high-end floral design.",
-    peony2: "Jacorma Peony",
-    peony2Text: "Strong color and excellent commercial presence.",
-    ranunculus: "Elegance® Ranunculus",
-    ranunculusText: "Premium series with strong uniformity, multiple colors and excellent presentation.",
-    anemone: "Mistral® Plus Anemone",
-    anemoneText: "Expressive and elegant flower, ideal for differentiated floral programs.",
-    locationEyebrow: "Location",
-    locationTitle: "Santiago and Osorno",
-    locationText:
-      "This is where the map from the “Where is Osorno?” PPT slide should be placed. In this preview, a reference block is used for the final visual replacement.",
-    statusEyebrow: "Current Status",
-    statusTitle: "Current field status",
-    statusText:
-      "This section is meant to display the current field photos extracted from the presentation, not one fixed image. Each card can be replaced with the real farm photos.",
-    status1: "Current view 1",
-    status2: "Current view 2",
-    status3: "Current view 3",
-    contactEyebrow: "Contact",
-    contactTitle: "Commercial contacts",
-    contactText:
-      "For importers, distributors and potential commercial partners in Chile and the United States.",
-    footer: "True bilingual version. The selector changes the full page.",
-  },
-};
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-function SectionTitle({ eyebrow, title }) {
-  return (
-    <div style={{ marginBottom: 24 }}>
-      <div style={{ fontFamily: "Inter, sans-serif", letterSpacing: 2, textTransform: "uppercase", fontSize: 12, color: colors.sage, fontWeight: 700, marginBottom: 10 }}>{eyebrow}</div>
-      <h2 style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 42, lineHeight: 1.05, margin: 0, color: colors.text }}>{title}</h2>
-    </div>
-  );
-}
-
-function StatCard({ label, value, sub }) {
-  return (
-    <div style={{ background: colors.card, border: `1px solid ${colors.line}`, borderRadius: 24, padding: 28, boxShadow: "0 10px 30px rgba(75,40,90,0.05)" }}>
-      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 14, color: colors.muted, marginBottom: 14 }}>{label}</div>
-      <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 44, color: colors.purple, fontWeight: 700, marginBottom: 10 }}>{value}</div>
-      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 14, color: colors.muted }}>{sub}</div>
-    </div>
-  );
-}
-
-function ProductCard({ title, text, tone }) {
-  return (
-    <div style={{ background: tone, borderRadius: 24, padding: 24, minHeight: 180, border: `1px solid ${colors.line}` }}>
-      <div style={{ fontSize: 42, marginBottom: 14 }}>🌸</div>
-      <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 28, color: colors.text, marginBottom: 10 }}>{title}</div>
-      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 15, lineHeight: 1.7, color: colors.muted }}>{text}</div>
-    </div>
-  );
-}
-
-export default function FloresRealSite() {
-  const [lang, setLang] = useState("es");
-  const copy = useMemo(() => t[lang], [lang]);
-
-  const tones = ["#f7ebf6", "#f5e4ed", "#fff4de", "#ece6f7"];
-
-  return (
-    <div style={{ background: colors.bg, minHeight: "100vh", color: colors.text, fontFamily: 'Inter, sans-serif' }}>
-      <div style={{ position: "sticky", top: 0, zIndex: 20, backdropFilter: "blur(10px)", background: "rgba(250,247,243,0.92)", borderBottom: `1px solid ${colors.line}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "18px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
-          <div>
-            <div style={{ fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: colors.purple, fontWeight: 700, marginBottom: 4 }}>{copy.badge}</div>
-            <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 34, color: colors.purpleDark, fontWeight: 700 }}>Flores de los Lagos</div>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-            <a href="#story" style={{ color: colors.muted, textDecoration: "none" }}>{copy.navStory}</a>
-            <a href="#products" style={{ color: colors.muted, textDecoration: "none" }}>{copy.navProducts}</a>
-            <a href="#location" style={{ color: colors.muted, textDecoration: "none" }}>{copy.navLocation}</a>
-            <a href="#status" style={{ color: colors.muted, textDecoration: "none" }}>{copy.navStatus}</a>
-            <a href="#contact" style={{ color: colors.muted, textDecoration: "none" }}>{copy.navContact}</a>
-
-            <div style={{ display: "flex", background: "#fff", border: `1px solid ${colors.line}`, borderRadius: 999, padding: 4 }}>
-              <button onClick={() => setLang("es")} style={{ border: 0, borderRadius: 999, padding: "10px 14px", cursor: "pointer", background: lang === "es" ? colors.purple : "transparent", color: lang === "es" ? "#fff" : colors.text, fontWeight: 700 }}>🇨🇱 ES</button>
-              <button onClick={() => setLang("en")} style={{ border: 0, borderRadius: 999, padding: "10px 14px", cursor: "pointer", background: lang === "en" ? colors.purple : "transparent", color: lang === "en" ? "#fff" : colors.text, fontWeight: 700 }}>🇺🇸 EN</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
-        <section style={{ padding: "36px 0 28px" }}>
-          <div style={{ display: "inline-block", background: colors.purple, color: "#fff", borderRadius: 999, padding: "10px 18px", fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 22 }}>
-            {copy.badge}
-          </div>
-          <h1 style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 72, lineHeight: 0.95, color: colors.purpleDark, margin: "0 0 12px" }}>{copy.heroTitle1}</h1>
-          <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 44, lineHeight: 1.05, color: colors.text, marginBottom: 18 }}>{copy.heroTitle2}</div>
-          <div style={{ maxWidth: 950, fontSize: 20, lineHeight: 1.7, color: colors.muted, marginBottom: 30 }}>{copy.heroText}</div>
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 34 }}>
-            <a href="#products" style={{ background: colors.purple, color: "#fff", textDecoration: "none", borderRadius: 14, padding: "14px 18px", fontWeight: 700 }}>{copy.cta1}</a>
-            <a href="#contact" style={{ background: "#fff", color: colors.purple, textDecoration: "none", borderRadius: 14, padding: "14px 18px", fontWeight: 700, border: `1px solid ${colors.purple}` }}>{copy.cta2}</a>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 18 }}>
-            <StatCard label={copy.plantedLabel} value={copy.plantedValue} sub={copy.plantedSub} />
-            <StatCard label={copy.targetLabel} value={copy.targetValue} sub={copy.targetSub} />
-            <StatCard label={copy.locationLabel} value={copy.locationValue} sub={copy.locationSub} />
-            <StatCard label={copy.languageLabel} value={lang === "es" ? "🇨🇱 🇺🇸" : "🇺🇸 🇨🇱"} sub={copy.languageSub} />
-          </div>
-        </section>
-
-        <section id="story" style={{ padding: "70px 0 28px" }}>
-          <SectionTitle eyebrow={copy.storyEyebrow} title={copy.storyTitle} />
-          <div style={{ maxWidth: 980, fontSize: 18, lineHeight: 1.8, color: colors.muted }}>{copy.storyText}</div>
-        </section>
-
-        <section id="products" style={{ padding: "70px 0 28px" }}>
-          <SectionTitle eyebrow={copy.productsEyebrow} title={copy.productsTitle} />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
-            <ProductCard title={copy.peony1} text={copy.peony1Text} tone={tones[0]} />
-            <ProductCard title={copy.peony2} text={copy.peony2Text} tone={tones[1]} />
-            <ProductCard title={copy.ranunculus} text={copy.ranunculusText} tone={tones[2]} />
-            <ProductCard title={copy.anemone} text={copy.anemoneText} tone={tones[3]} />
-          </div>
-        </section>
-
-        <section id="location" style={{ padding: "70px 0 28px" }}>
-          <SectionTitle eyebrow={copy.locationEyebrow} title={copy.locationTitle} />
-          <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 22, alignItems: "stretch" }}>
-            <div style={{ background: "#fff", border: `1px solid ${colors.line}`, borderRadius: 28, padding: 26 }}>
-              <div style={{ fontSize: 18, lineHeight: 1.8, color: colors.muted, marginBottom: 18 }}>{copy.locationText}</div>
-              <div style={{ display: "inline-flex", gap: 10, alignItems: "center", borderRadius: 999, padding: "10px 16px", background: "#f5eff8", color: colors.purple, fontWeight: 700 }}>
-                Santiago ↔ Osorno • 950 km / 590 miles
-              </div>
-            </div>
-            <div style={{ background: "linear-gradient(180deg,#eef4fb,#f8fbff)", border: `1px solid ${colors.line}`, borderRadius: 28, minHeight: 340, display: "grid", placeItems: "center", padding: 26 }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 64, marginBottom: 12 }}>🗺️</div>
-                <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 34, color: colors.text, marginBottom: 8 }}>Mapa “Where is Osorno?”</div>
-                <div style={{ color: colors.muted, lineHeight: 1.7, maxWidth: 420 }}>
-                  En la versión final, aquí debe mostrarse el mapa del PPT integrado visualmente en la página.
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="status" style={{ padding: "70px 0 28px" }}>
-          <SectionTitle eyebrow={copy.statusEyebrow} title={copy.statusTitle} />
-          <div style={{ maxWidth: 980, fontSize: 18, lineHeight: 1.8, color: colors.muted, marginBottom: 20 }}>{copy.statusText}</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
-            {[copy.status1, copy.status2, copy.status3].map((label, i) => (
-              <div key={label} style={{ background: "#fff", border: `1px solid ${colors.line}`, borderRadius: 24, overflow: "hidden" }}>
-                <div style={{ height: 220, background: i === 0 ? "linear-gradient(135deg,#cfd9b6,#e6edd8)" : i === 1 ? "linear-gradient(135deg,#d0e0ba,#f1f5e8)" : "linear-gradient(135deg,#d7ddc8,#f4f1e7)", display: "grid", placeItems: "center", fontSize: 56 }}>📷</div>
-                <div style={{ padding: 18, fontWeight: 700, color: colors.text }}>{label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" style={{ padding: "70px 0 18px" }}>
-          <SectionTitle eyebrow={copy.contactEyebrow} title={copy.contactTitle} />
-          <div style={{ maxWidth: 980, fontSize: 18, lineHeight: 1.8, color: colors.muted, marginBottom: 20 }}>{copy.contactText}</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
-            <div style={{ background: colors.purpleDark, color: "#fff", borderRadius: 24, padding: 24 }}>
-              <div style={{ opacity: 0.8, marginBottom: 8 }}>Chile / USA</div>
-              <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 30, marginBottom: 8 }}>José Ignacio Gallardo</div>
-              <div style={{ fontSize: 20, fontWeight: 700 }}>+56 9 9331 7224</div>
-            </div>
-            <div style={{ background: colors.purple, color: "#fff", borderRadius: 24, padding: 24 }}>
-              <div style={{ opacity: 0.8, marginBottom: 8 }}>Chile / USA</div>
-              <div style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: 30, marginBottom: 8 }}>Enrique Covarrubias</div>
-              <div style={{ fontSize: 20, fontWeight: 700 }}>+56 9 8501 2942</div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div style={{ borderTop: `1px solid ${colors.line}`, padding: "18px 24px 50px", color: colors.muted, textAlign: "center" }}>{copy.footer}</div>
-    </div>
-  );
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index
