@@ -228,7 +228,6 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform .25s ease;
     }
 
     .hero-label{
@@ -343,7 +342,6 @@
     .mini-image{
       height:220px;
       background:#f6f1f7;
-      overflow:hidden;
     }
 
     .flower-image img,
@@ -352,19 +350,6 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform .25s ease;
-    }
-
-    /* RECORTE PARA ESCONDER EL TEXTO NEGRO DE FONDO
-       en ranúnculos y anémonas que vienen con la franja izquierda */
-    .crop-flower img{
-      object-position:84% center;
-      transform:scale(1.55);
-    }
-
-    .crop-anemone img{
-      object-position:82% center;
-      transform:scale(1.58);
     }
 
     .flower-copy{
@@ -542,7 +527,7 @@
               </div>
             </div>
 
-            <div class="hero-image crop-flower">
+            <div class="hero-image">
               <img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" />
               <div class="hero-label">
                 <small id="hero3Meta">Ranúnculo Elegance®</small>
@@ -550,7 +535,7 @@
               </div>
             </div>
 
-            <div class="hero-image crop-anemone">
+            <div class="hero-image">
               <img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" />
               <div class="hero-label">
                 <small id="hero4Meta">Anémona Mistral® Plus</small>
@@ -631,7 +616,7 @@
       <h3 class="subsection-title" id="ranTitle">Ranúnculos Elegance®</h3>
       <div class="varieties-grid">
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" /></div>
+          <div class="mini-image"><img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r1Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Bianco</h4>
@@ -640,7 +625,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-clementine.jpg" alt="Ranunculus Elegance Clementine" /></div>
+          <div class="mini-image"><img src="ranunculus-clementine.jpg" alt="Ranunculus Elegance Clementine" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r2Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Clementine</h4>
@@ -649,7 +634,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-giallo.jpg" alt="Ranunculus Elegance Giallo" /></div>
+          <div class="mini-image"><img src="ranunculus-giallo.jpg" alt="Ranunculus Elegance Giallo" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r3Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Giallo</h4>
@@ -658,7 +643,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-hot-pink.jpg" alt="Ranunculus Elegance Hot Pink" /></div>
+          <div class="mini-image"><img src="ranunculus-hot-pink.jpg" alt="Ranunculus Elegance Hot Pink" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r4Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Hot Pink</h4>
@@ -667,7 +652,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-rosso.jpg" alt="Ranunculus Elegance Rosso" /></div>
+          <div class="mini-image"><img src="ranunculus-rosso.jpg" alt="Ranunculus Elegance Rosso" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r5Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Rosso</h4>
@@ -676,7 +661,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-viola.jpg" alt="Ranunculus Elegance Viola" /></div>
+          <div class="mini-image"><img src="ranunculus-viola.jpg" alt="Ranunculus Elegance Viola" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r6Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Viola</h4>
@@ -688,7 +673,7 @@
       <h3 class="subsection-title" id="aneTitle">Anémonas Mistral® Plus</h3>
       <div class="varieties-grid">
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-panda.jpg" alt="Anemone Mistral Panda" /></div>
+          <div class="mini-image"><img src="anemone-panda.jpg" alt="Anemone Mistral Panda" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a1Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Panda</h4>
@@ -697,7 +682,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-blu.jpg" alt="Anemone Mistral Blu" /></div>
+          <div class="mini-image"><img src="anemone-blu.jpg" alt="Anemone Mistral Blu" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a2Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Blu</h4>
@@ -706,7 +691,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" /></div>
+          <div class="mini-image"><img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a3Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Fucsia</h4>
@@ -715,7 +700,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-rosso.jpg" alt="Anemone Mistral Rosso" /></div>
+          <div class="mini-image"><img src="anemone-rosso.jpg" alt="Anemone Mistral Rosso" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a4Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Rosso</h4>
