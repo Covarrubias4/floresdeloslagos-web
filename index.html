@@ -11,13 +11,11 @@
   <style>
     :root{
       --bg:#faf7f3;
-      --bg-soft:#f6eff7;
       --card:#ffffff;
       --text:#2f2434;
       --muted:#6f6475;
       --purple:#7b3f8e;
       --purple-dark:#5f2a70;
-      --purple-soft:#eadfea;
       --sage:#8b9f5c;
       --line:#eadfea;
       --shadow:0 18px 44px rgba(75,40,90,.08);
@@ -33,8 +31,9 @@
       color:var(--text);
       background:linear-gradient(180deg,#fcfaf6 0%,#f8f2f8 100%);
     }
+
     img{display:block;max-width:100%}
-    a{color:inherit}
+    a{text-decoration:none;color:inherit}
 
     .container{
       max-width:var(--max);
@@ -46,7 +45,7 @@
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(250,247,243,.9);
+      background:rgba(250,247,243,.92);
       backdrop-filter:blur(12px);
       border-bottom:1px solid var(--line);
     }
@@ -97,7 +96,6 @@
     }
 
     nav a{
-      text-decoration:none;
       color:var(--muted);
       font-size:15px;
       transition:.2s ease;
@@ -186,7 +184,6 @@
 
     .btn{
       display:inline-block;
-      text-decoration:none;
       font-weight:700;
       padding:14px 18px;
       border-radius:14px;
@@ -199,7 +196,6 @@
       box-shadow:0 12px 24px rgba(123,63,142,.18);
     }
 
-    .btn-primary:hover{transform:translateY(-1px)}
     .btn-secondary{
       background:#fff;
       color:var(--purple);
@@ -221,6 +217,7 @@
     }
 
     .hero-image{
+      position:relative;
       border-radius:22px;
       overflow:hidden;
       height:220px;
@@ -233,7 +230,33 @@
       object-fit:cover;
     }
 
-    .grid4,.grid3,.grid2,.contacts,.varieties-grid{
+    .hero-label{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:14px 16px 13px;
+      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(36,23,41,.78) 100%);
+      color:#fff;
+    }
+
+    .hero-label small{
+      display:block;
+      font-size:11px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      opacity:.88;
+      margin-bottom:4px;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    .hero-label strong{
+      font-size:22px;
+      line-height:1.05;
+      font-family:Georgia,"Times New Roman",serif;
+    }
+
+    .grid4,.grid3,.grid2,.contacts,.varieties-grid,.peony-grid{
       display:grid;
       gap:18px;
     }
@@ -243,6 +266,7 @@
     .grid2{grid-template-columns:1.02fr .98fr}
     .contacts{grid-template-columns:repeat(2,minmax(0,1fr))}
     .varieties-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .peony-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 
     .card{
       background:var(--card);
@@ -263,6 +287,7 @@
       letter-spacing:1.4px;
       font-weight:700;
       margin-bottom:10px;
+      font-family:Inter,Arial,sans-serif;
     }
 
     .stat-value{
@@ -297,9 +322,9 @@
     }
 
     .subsection-title{
-      font-size:28px;
+      font-size:30px;
       color:var(--purple-dark);
-      margin:18px 0 16px;
+      margin:24px 0 16px;
     }
 
     .flower-card,.status-card,.mini-card{
@@ -308,7 +333,7 @@
     }
 
     .flower-image{
-      height:260px;
+      height:300px;
       background:#f6f1f7;
     }
 
@@ -340,6 +365,7 @@
       color:var(--purple);
       font-weight:700;
       font-size:14px;
+      font-family:Inter,Arial,sans-serif;
     }
 
     .map-block{
@@ -364,6 +390,7 @@
       padding:10px 16px;
       border-radius:999px;
       margin-top:16px;
+      font-family:Inter,Arial,sans-serif;
     }
 
     .status-card img{
@@ -373,6 +400,7 @@
     .status-label{
       padding:18px 20px;
       font-weight:700;
+      font-family:Inter,Arial,sans-serif;
     }
 
     .contactA{
@@ -391,6 +419,7 @@
       text-transform:uppercase;
       letter-spacing:1.4px;
       font-size:12px;
+      font-family:Inter,Arial,sans-serif;
     }
 
     .contact-name{
@@ -401,6 +430,7 @@
     .contact-phone{
       font-size:20px;
       font-weight:700;
+      font-family:Inter,Arial,sans-serif;
     }
 
     .footer{
@@ -410,6 +440,7 @@
       color:var(--muted);
       font-size:14px;
       text-align:center;
+      font-family:Inter,Arial,sans-serif;
     }
 
     @media (max-width:1080px){
@@ -417,7 +448,7 @@
     }
 
     @media (max-width:980px){
-      .hero-grid,.grid4,.grid3,.grid2,.contacts,.varieties-grid{grid-template-columns:1fr}
+      .hero-grid,.grid4,.grid3,.grid2,.contacts,.varieties-grid,.peony-grid{grid-template-columns:1fr}
       .topbar-inner{align-items:flex-start}
     }
   </style>
@@ -470,15 +501,34 @@
           <div class="hero-card-grid">
             <div class="hero-image">
               <img src="peonia-sarah.jpg" alt="Sarah Bernhardt peony" />
+              <div class="hero-label">
+                <small id="hero1Meta">Peonía</small>
+                <strong id="hero1Name">Sarah Bernhardt</strong>
+              </div>
             </div>
+
             <div class="hero-image">
               <img src="peonia-jacorma.jpg" alt="Jacorma peony" />
+              <div class="hero-label">
+                <small id="hero2Meta">Peonía</small>
+                <strong id="hero2Name">Jacorma</strong>
+              </div>
             </div>
+
             <div class="hero-image">
               <img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" />
+              <div class="hero-label">
+                <small id="hero3Meta">Ranúnculo Elegance®</small>
+                <strong id="hero3Name">Bianco</strong>
+              </div>
             </div>
+
             <div class="hero-image">
               <img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" />
+              <div class="hero-label">
+                <small id="hero4Meta">Anémona Mistral® Plus</small>
+                <strong id="hero4Name">Fucsia</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -525,6 +575,37 @@
     <section id="flowers">
       <div class="eyebrow" id="flowersEyebrow">Collection</div>
       <h2 class="section-title" id="flowersTitle">Variedades principales</h2>
+
+      <h3 class="subsection-title" id="peoTitle">Peonías</h3>
+      <div class="peony-grid">
+        <article class="card flower-card">
+          <div class="flower-image">
+            <img src="peonia-sarah.jpg" alt="Sarah Bernhardt peony" />
+          </div>
+          <div class="flower-copy">
+            <div class="flower-meta" id="p1Meta">Peonía</div>
+            <h4 class="flower-title">Sarah Bernhardt</h4>
+            <div class="flower-text" id="p1Text">
+              Variedad clásica premium, altamente valorada para bodas, diseño floral y programas de alto nivel.
+            </div>
+            <div class="flower-note" id="p1Note">2027: 360.000 stems</div>
+          </div>
+        </article>
+
+        <article class="card flower-card">
+          <div class="flower-image">
+            <img src="peonia-jacorma.jpg" alt="Jacorma peony" />
+          </div>
+          <div class="flower-copy">
+            <div class="flower-meta" id="p2Meta">Peonía</div>
+            <h4 class="flower-title">Jacorma</h4>
+            <div class="flower-text" id="p2Text">
+              Variedad de color intenso y excelente presencia comercial para una propuesta premium diferenciada.
+            </div>
+            <div class="flower-note" id="p2Note">2027: 45.000 stems</div>
+          </div>
+        </article>
+      </div>
 
       <h3 class="subsection-title" id="ranTitle">Ranúnculos Elegance®</h3>
       <div class="varieties-grid">
@@ -704,12 +785,23 @@
         navLocation: "Ubicación",
         navStatus: "Estado actual",
         navContact: "Contacto",
+
         heroEyebrow: "Premium floral production",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Flores premium del sur de Chile",
         heroText: "Peonías, ranúnculos y anémonas cultivadas en Osorno para importadores, wholesalers y programas retail que buscan calidad, identidad y abastecimiento de contraestación.",
         cta1: "Ver variedades",
         cta2: "Contactar",
+
+        hero1Meta: "Peonía",
+        hero1Name: "Sarah Bernhardt",
+        hero2Meta: "Peonía",
+        hero2Name: "Jacorma",
+        hero3Meta: "Ranúnculo Elegance®",
+        hero3Name: "Bianco",
+        hero4Meta: "Anémona Mistral® Plus",
+        hero4Name: "Fucsia",
+
         stat1Label: "Superficie actual",
         stat1Value: "5,0 ha",
         stat1Sub: "plantadas hoy",
@@ -722,13 +814,23 @@
         stat4Label: "Idiomas",
         stat4Value: "ES / EN",
         stat4Sub: "presentación bilingüe",
+
         storyEyebrow: "About",
         storyTitle: "Producción premium desde el sur de Chile",
         storyText: "Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado, calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium. El objetivo es escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas, manteniendo una propuesta enfocada en calidad, consistencia y valor comercial.",
+
         flowersEyebrow: "Collection",
         flowersTitle: "Variedades principales",
+
+        peoTitle: "Peonías",
+        p1Meta: "Peonía",
+        p1Text: "Variedad clásica premium, altamente valorada para bodas, diseño floral y programas de alto nivel.",
+        p1Note: "2027: 360.000 stems",
+        p2Meta: "Peonía",
+        p2Text: "Variedad de color intenso y excelente presencia comercial para una propuesta premium diferenciada.",
+        p2Note: "2027: 45.000 stems",
+
         ranTitle: "Ranúnculos Elegance®",
-        aneTitle: "Anémonas Mistral® Plus",
         r1Meta: "Ranúnculo Elegance®",
         r1Text: "Blanco puro y elegante, ideal para diseño floral sofisticado y programas premium.",
         r2Meta: "Ranúnculo Elegance®",
@@ -741,6 +843,8 @@
         r5Text: "Rojo profundo con fuerza comercial y gran valor para fechas especiales.",
         r6Meta: "Ranúnculo Elegance®",
         r6Text: "Matiz violeta distintivo, elegante y diferenciador dentro de una oferta premium.",
+
+        aneTitle: "Anémonas Mistral® Plus",
         a1Meta: "Anémona Mistral® Plus",
         a1Text: "Blanco contrastado con centro oscuro, elegante y muy valorado en arreglos refinados.",
         a2Meta: "Anémona Mistral® Plus",
@@ -749,21 +853,26 @@
         a3Text: "Vibrante y expresiva, ideal para programas que buscan impacto visual y frescura.",
         a4Meta: "Anémona Mistral® Plus",
         a4Text: "Rojo intenso y elegante, con gran potencial comercial en programas premium.",
+
         locEyebrow: "Location",
         locTitle: "Osorno, Southern Chile",
         locText: "Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago, en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.",
         locPill: "Santiago ↔ Osorno • 950 km / 590 miles",
+
         statusEyebrow: "Current Status",
         statusTitle: "Estado actual del campo",
         statusText: "Avance actual del proyecto y vistas del campo en desarrollo.",
         s1: "Vista actual 1",
         s2: "Vista actual 2",
         s3: "Vista actual 3",
+
         contactEyebrow: "Contact",
         contactTitle: "Contactos comerciales",
         contactText: "Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.",
+
         footerText: "Flores de los Lagos · Osorno, Chile"
       },
+
       en: {
         brandTag: "Southern Chile",
         navStory: "Story",
@@ -771,12 +880,23 @@
         navLocation: "Location",
         navStatus: "Current status",
         navContact: "Contact",
+
         heroEyebrow: "Premium floral production",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Premium flowers from Southern Chile",
         heroText: "Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail programs seeking quality, identity and counter-seasonal supply.",
         cta1: "View varieties",
         cta2: "Contact us",
+
+        hero1Meta: "Peony",
+        hero1Name: "Sarah Bernhardt",
+        hero2Meta: "Peony",
+        hero2Name: "Jacorma",
+        hero3Meta: "Elegance® Ranunculus",
+        hero3Name: "Bianco",
+        hero4Meta: "Mistral® Plus Anemone",
+        hero4Name: "Fucsia",
+
         stat1Label: "Current footprint",
         stat1Value: "5.0 ha",
         stat1Sub: "planted today",
@@ -789,13 +909,23 @@
         stat4Label: "Languages",
         stat4Value: "ES / EN",
         stat4Sub: "bilingual presentation",
+
         storyEyebrow: "About",
         storyTitle: "Premium production from Southern Chile",
         storyText: "Located in Osorno, in Chile’s Los Lagos Region, our project combines climate, growing quality and long-term vision to serve international markets with premium flowers. The goal is to scale from 5.0 hectares planted today to 50.0 hectares while maintaining a proposition focused on quality, consistency and commercial value.",
+
         flowersEyebrow: "Collection",
         flowersTitle: "Main varieties",
+
+        peoTitle: "Peonies",
+        p1Meta: "Peony",
+        p1Text: "Classic premium variety, highly valued for weddings, floral design and high-end programs.",
+        p1Note: "2027: 360,000 stems",
+        p2Meta: "Peony",
+        p2Text: "Strong color and excellent commercial presence for a differentiated premium proposition.",
+        p2Note: "2027: 45,000 stems",
+
         ranTitle: "Elegance® Ranunculus",
-        aneTitle: "Mistral® Plus Anemones",
         r1Meta: "Elegance® Ranunculus",
         r1Text: "Pure white and elegant, ideal for refined floral design and premium programs.",
         r2Meta: "Elegance® Ranunculus",
@@ -808,6 +938,8 @@
         r5Text: "Deep red with commercial strength and strong value for special occasions.",
         r6Meta: "Elegance® Ranunculus",
         r6Text: "Distinctive violet tone, elegant and differentiating within a premium offering.",
+
+        aneTitle: "Mistral® Plus Anemones",
         a1Meta: "Mistral® Plus Anemone",
         a1Text: "White contrast with dark center, elegant and highly valued in refined arrangements.",
         a2Meta: "Mistral® Plus Anemone",
@@ -816,19 +948,23 @@
         a3Text: "Vibrant and expressive, ideal for programs seeking visual impact and freshness.",
         a4Meta: "Mistral® Plus Anemone",
         a4Text: "Intense red and elegant presence, with strong premium commercial potential.",
+
         locEyebrow: "Location",
         locTitle: "Osorno, Southern Chile",
         locText: "Our production is located in Osorno, 950 km south of Santiago, in one of Chile’s most attractive agricultural regions. This location supports a differentiated premium flower proposition with origin identity and export potential.",
         locPill: "Santiago ↔ Osorno • 950 km / 590 miles",
+
         statusEyebrow: "Current Status",
         statusTitle: "Current field status",
         statusText: "Current project progress and field views.",
         s1: "Current view 1",
         s2: "Current view 2",
         s3: "Current view 3",
+
         contactEyebrow: "Contact",
         contactTitle: "Commercial contacts",
         contactText: "For importers, distributors and potential commercial partners in Chile and the United States.",
+
         footerText: "Flores de los Lagos · Osorno, Chile"
       }
     };
