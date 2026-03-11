@@ -203,11 +203,11 @@
     }
 
     .hero-card{
-      background:linear-gradient(180deg,#fff 0%,#f7f1f8 100%);
-      border:1px solid var(--line);
-      border-radius:30px;
-      padding:18px;
-      box-shadow:var(--shadow);
+      background:transparent;
+      border:none;
+      border-radius:0;
+      padding:0;
+      box-shadow:none;
     }
 
     .hero-card-grid{
@@ -256,23 +256,19 @@
       font-family:Georgia,"Times New Roman",serif;
     }
 
-    .grid4,.grid3,.grid2,.contacts,.varieties-grid,.peony-grid{
+    .grid3,.grid2,.contacts,.varieties-grid,.peony-grid{
       display:grid;
       gap:18px;
     }
 
-    .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
     .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid2{grid-template-columns:1.02fr .98fr}
     .contacts{grid-template-columns:repeat(2,minmax(0,1fr))}
     .varieties-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 
-    /* CAMBIO PRINCIPAL:
-       las peonías ahora usan tarjetas del mismo tamaño visual que las demás,
-       pero centradas para que la sección se vea elegante */
     .peony-grid{
       grid-template-columns:repeat(2,minmax(260px, 280px));
-      justify-content:center;
+      justify-content:start;
     }
 
     .card{
@@ -285,6 +281,9 @@
 
     .stats{
       margin-top:28px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
     }
 
     .stat-label,.flower-meta{
@@ -339,12 +338,7 @@
       overflow:hidden;
     }
 
-    /* misma altura visual para TODAS las variedades */
-    .flower-image{
-      height:220px;
-      background:#f6f1f7;
-    }
-
+    .flower-image,
     .mini-image{
       height:220px;
       background:#f6f1f7;
@@ -456,7 +450,16 @@
     }
 
     @media (max-width:980px){
-      .hero-grid,.grid4,.grid3,.grid2,.contacts,.varieties-grid,.peony-grid{grid-template-columns:1fr}
+      .hero-grid,
+      .grid3,
+      .grid2,
+      .contacts,
+      .varieties-grid,
+      .peony-grid,
+      .stats{
+        grid-template-columns:1fr;
+      }
+
       .topbar-inner{align-items:flex-start}
       .peony-grid{justify-content:stretch}
     }
@@ -543,7 +546,7 @@
         </div>
       </div>
 
-      <div class="grid4 stats">
+      <div class="stats">
         <article class="card">
           <div class="stat-label" id="stat1Label">Superficie actual</div>
           <div class="stat-value" id="stat1Value">5,0 ha</div>
@@ -560,12 +563,6 @@
           <div class="stat-label" id="stat3Label">Ubicación</div>
           <div class="stat-value" id="stat3Value">Osorno</div>
           <div class="stat-sub" id="stat3Sub">950 km / 590 millas desde Santiago</div>
-        </article>
-
-        <article class="card">
-          <div class="stat-label" id="stat4Label">Idiomas</div>
-          <div class="stat-value" id="stat4Value">ES / EN</div>
-          <div class="stat-sub" id="stat4Sub">presentación bilingüe</div>
         </article>
       </div>
     </section>
@@ -820,9 +817,6 @@
         stat3Label: "Ubicación",
         stat3Value: "Osorno",
         stat3Sub: "950 km / 590 millas desde Santiago",
-        stat4Label: "Idiomas",
-        stat4Value: "ES / EN",
-        stat4Sub: "presentación bilingüe",
 
         storyEyebrow: "About",
         storyTitle: "Producción premium desde el sur de Chile",
@@ -915,9 +909,6 @@
         stat3Label: "Location",
         stat3Value: "Osorno",
         stat3Sub: "950 km / 590 miles from Santiago",
-        stat4Label: "Languages",
-        stat4Value: "ES / EN",
-        stat4Sub: "bilingual presentation",
 
         storyEyebrow: "About",
         storyTitle: "Premium production from Southern Chile",
@@ -986,9 +977,7 @@
     function setLanguage(lang) {
       const c = content[lang];
       document.documentElement.lang = lang;
-
       Object.entries(c).forEach(([k, v]) => setText(k, v));
-
       document.getElementById("btnES").classList.toggle("active", lang === "es");
       document.getElementById("btnEN").classList.toggle("active", lang === "en");
     }
