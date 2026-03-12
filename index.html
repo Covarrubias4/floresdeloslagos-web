@@ -239,6 +239,7 @@
       padding:14px 16px 13px;
       background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(36,23,41,.78) 100%);
       color:#fff;
+      z-index:3;
     }
 
     .hero-label small{
@@ -341,6 +342,7 @@
 
     .flower-image,
     .mini-image{
+      position:relative;
       height:220px;
       background:#f6f1f7;
       overflow:hidden;
@@ -357,14 +359,51 @@
 
     /* menos zoom para ranúnculos */
     .crop-flower img{
-      object-position:78% center;
-      transform:scale(1.28);
+      object-position:72% center;
+      transform:scale(1.14);
     }
 
     /* menos zoom para anémonas */
     .crop-anemone img{
-      object-position:78% center;
-      transform:scale(1.30);
+      object-position:72% center;
+      transform:scale(1.16);
+    }
+
+    /* máscara suave para ocultar la franja izquierda con texto de origen */
+    .crop-flower::before,
+    .crop-anemone::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:22%;
+      z-index:2;
+      pointer-events:none;
+      background:linear-gradient(
+        90deg,
+        rgba(246,241,247,.96) 0%,
+        rgba(246,241,247,.88) 48%,
+        rgba(246,241,247,0) 100%
+      );
+    }
+
+    .hero-image.crop-flower::before,
+    .hero-image.crop-anemone::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:22%;
+      z-index:2;
+      pointer-events:none;
+      background:linear-gradient(
+        90deg,
+        rgba(243,237,245,.96) 0%,
+        rgba(243,237,245,.88) 48%,
+        rgba(243,237,245,0) 100%
+      );
     }
 
     .flower-copy{
@@ -410,14 +449,16 @@
       font-family:Inter,Arial,sans-serif;
     }
 
-    .status-card img{
-      height:310px;
+    .status-card{
+      padding:0;
+      overflow:hidden;
     }
 
-    .status-label{
-      padding:18px 20px;
-      font-weight:700;
-      font-family:Inter,Arial,sans-serif;
+    .status-card img{
+      height:310px;
+      width:100%;
+      object-fit:cover;
+      display:block;
     }
 
     .contactA{
@@ -788,18 +829,15 @@
 
       <div class="grid3">
         <article class="card status-card">
-          <img src="current-status-1.jpg" alt="Current field status 1" />
-          <div class="status-label" id="s1">Vista actual 1</div>
+          <img src="current-status-1.jpg" alt="Vista actual del campo 1" />
         </article>
 
         <article class="card status-card">
-          <img src="current-status-2.jpg" alt="Current field status 2" />
-          <div class="status-label" id="s2">Vista actual 2</div>
+          <img src="current-status-2.jpg" alt="Vista actual del campo 2" />
         </article>
 
         <article class="card status-card">
-          <img src="current-status-3.jpg" alt="Current field status 3" />
-          <div class="status-label" id="s3">Vista actual 3</div>
+          <img src="current-status-3.jpg" alt="Vista actual del campo 3" />
         </article>
       </div>
     </section>
@@ -928,9 +966,6 @@
         statusEyebrow: "Estado actual",
         statusTitle: "Estado actual del campo",
         statusText: "Avance actual del proyecto y vistas del campo en desarrollo.",
-        s1: "Vista actual 1",
-        s2: "Vista actual 2",
-        s3: "Vista actual 3",
 
         contactEyebrow: "Contacto",
         contactTitle: "Contactos comerciales",
@@ -1020,9 +1055,6 @@
         statusEyebrow: "Current Status",
         statusTitle: "Current field status",
         statusText: "Current project progress and field views.",
-        s1: "Current view 1",
-        s2: "Current view 2",
-        s3: "Current view 3",
 
         contactEyebrow: "Contact",
         contactTitle: "Commercial contacts",
