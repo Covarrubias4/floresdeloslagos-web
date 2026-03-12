@@ -357,14 +357,43 @@
       transition:transform .25s ease;
     }
 
+    /* menos zoom para ranúnculos */
     .crop-flower img{
       object-position:72% center;
       transform:scale(1.14);
     }
 
+    /* menos zoom para anémonas */
     .crop-anemone img{
       object-position:72% center;
       transform:scale(1.16);
+    }
+
+    /* máscara suave eliminada */
+    .crop-flower::before,
+    .crop-anemone::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:22%;
+      z-index:2;
+      pointer-events:none;
+      background: none;
+    }
+
+    .hero-image.crop-flower::before,
+    .hero-image.crop-anemone::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:22%;
+      z-index:2;
+      pointer-events:none;
+      background: none;
     }
 
     .flower-copy{
@@ -383,22 +412,6 @@
       font-weight:700;
       font-size:14px;
       font-family:Inter,Arial,sans-serif;
-    }
-
-    /* Fondo morado y letras blancas para proyecciones generales */
-    .proj-pill-purple{
-      display:inline-block;
-      background:var(--purple);
-      color:#fff;
-      font-size:12px;
-      font-weight:700;
-      padding:6px 16px;
-      border-radius:999px;
-      margin-bottom:16px;
-      font-family:Inter,Arial,sans-serif;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      box-shadow: 0 4px 12px rgba(123, 63, 142, 0.2);
     }
 
     .map-block{
@@ -514,14 +527,28 @@
     }
 
     @media (max-width:980px){
-      .hero-grid,.grid3,.grid2,.contacts,.varieties-grid,.peony-grid,.stats{grid-template-columns:1fr}
+      .hero-grid,
+      .grid3,
+      .grid2,
+      .contacts,
+      .varieties-grid,
+      .peony-grid,
+      .stats{
+        grid-template-columns:1fr;
+      }
+
       .topbar-inner{align-items:flex-start}
       .peony-grid{justify-content:stretch}
     }
 
     @media (max-width:640px){
-      .contact-profile{align-items:flex-start}
-      .contact-name{font-size:28px}
+      .contact-profile{
+        align-items:flex-start;
+      }
+
+      .contact-name{
+        font-size:28px;
+      }
     }
   </style>
 </head>
@@ -562,36 +589,41 @@
             Peonías, ranúnculos y anémonas cultivadas en Osorno para importadores,
             wholesalers y programas retail que buscan calidad, identidad y abastecimiento de contraestación.
           </div>
+
           <div class="actions">
             <a class="btn btn-primary" href="#flowers" id="cta1">Ver variedades</a>
             <a class="btn btn-secondary" href="#contact" id="cta2">Contactar</a>
           </div>
         </div>
+
         <div class="hero-card">
           <div class="hero-card-grid">
             <div class="hero-image">
-              <img src="peonia-sarah.jpg" alt="Sarah Bernhardt" />
+              <img src="peonia-sarah.jpg" alt="Sarah Bernhardt peony" />
               <div class="hero-label">
                 <small id="hero1Meta">Peonía</small>
                 <strong id="hero1Name">Sarah Bernhardt</strong>
               </div>
             </div>
+
             <div class="hero-image">
-              <img src="peonia-jacorma.jpg" alt="Jacorma" />
+              <img src="peonia-jacorma.jpg" alt="Jacorma peony" />
               <div class="hero-label">
                 <small id="hero2Meta">Peonía</small>
                 <strong id="hero2Name">Jacorma</strong>
               </div>
             </div>
+
             <div class="hero-image crop-flower">
-              <img src="ranunculus-bianco.jpg" alt="Ranunculus Bianco" />
+              <img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" />
               <div class="hero-label">
                 <small id="hero3Meta">Ranúnculo Elegance®</small>
                 <strong id="hero3Name">Bianco</strong>
               </div>
             </div>
+
             <div class="hero-image crop-anemone">
-              <img src="anemone-fucsia.jpg" alt="Anemone Fucsia" />
+              <img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" />
               <div class="hero-label">
                 <small id="hero4Meta">Anémona Mistral® Plus</small>
                 <strong id="hero4Name">Fucsia</strong>
@@ -607,15 +639,17 @@
           <div class="stat-value" id="stat1Value">5,0 ha</div>
           <div class="stat-sub" id="stat1Sub">plantadas hoy</div>
         </article>
+
         <article class="card">
           <div class="stat-label" id="stat2Label">Meta</div>
           <div class="stat-value" id="stat2Value">50,0 ha</div>
           <div class="stat-sub" id="stat2Sub">expansión proyectada</div>
         </article>
+
         <article class="card">
           <div class="stat-label" id="stat3Label">Ubicación</div>
           <div class="stat-value" id="stat3Value">Osorno</div>
-          <div class="stat-sub" id="stat3Sub">950 km desde Santiago</div>
+          <div class="stat-sub" id="stat3Sub">950 km / 590 millas desde Santiago</div>
         </article>
       </div>
     </section>
@@ -626,6 +660,8 @@
       <div class="section-copy" id="storyText">
         Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado,
         calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium.
+        El objetivo es escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas,
+        manteniendo una propuesta enfocada en calidad, consistencia y valor comercial.
       </div>
     </section>
 
@@ -636,87 +672,126 @@
       <h3 class="subsection-title" id="peoTitle">Peonías</h3>
       <div class="peony-grid">
         <article class="card mini-card">
-          <div class="mini-image"><img src="peonia-sarah.jpg" alt="Sarah Bernhardt" /></div>
+          <div class="mini-image">
+            <img src="peonia-sarah.jpg" alt="Sarah Bernhardt peony" />
+          </div>
           <div class="flower-copy">
             <div class="flower-meta" id="p1Meta">Peonía</div>
             <h4 class="flower-title">Sarah Bernhardt</h4>
-            <div class="flower-text" id="p1Text">Variedad clásica premium, altamente valorada para bodas y programas de alto nivel.</div>
-            <div class="flower-note" id="p1Note">45.000 varas (2026) | 360.000 varas (2027)</div>
+            <div class="flower-text" id="p1Text">
+              Variedad clásica premium, altamente valorada para bodas, diseño floral y programas de alto nivel.
+            </div>
+            <div class="flower-note" id="p1Note">2027: 360.000 stems</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image"><img src="peonia-jacorma.jpg" alt="Jacorma" /></div>
+          <div class="mini-image">
+            <img src="peonia-jacorma.jpg" alt="Jacorma peony" />
+          </div>
           <div class="flower-copy">
             <div class="flower-meta" id="p2Meta">Peonía</div>
             <h4 class="flower-title">Jacorma</h4>
-            <div class="flower-text" id="p2Text">Variedad de color intenso y excelente presencia comercial para una propuesta diferenciada.</div>
-            <div class="flower-note" id="p2Note">5.000 varas (2026) | 45.000 varas (2027)</div>
+            <div class="flower-text" id="p2Text">
+              Variedad de color intenso y excelente presencia comercial para una propuesta premium diferenciada.
+            </div>
+            <div class="flower-note" id="p2Note">2027: 45.000 stems</div>
           </div>
         </article>
       </div>
 
       <h3 class="subsection-title" id="ranTitle">Ranúnculos Elegance®</h3>
-      <div class="proj-pill-purple" id="ranProj">Proyección 2026: 405.000 varas (total)</div>
       <div class="varieties-grid">
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-bianco.jpg" alt="Ranunculus Bianco" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="r1Meta">Ranúnculo</div>
+            <div class="flower-meta" id="r1Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Bianco</h4>
+            <div class="flower-text" id="r1Text">Blanco puro y elegante, ideal para diseño floral sofisticado y programas premium.</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-clementine.jpg" alt="Ranunculus Clementine" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-clementine.jpg" alt="Ranunculus Elegance Clementine" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="r2Meta">Ranúnculo</div>
+            <div class="flower-meta" id="r2Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Clementine</h4>
+            <div class="flower-text" id="r2Text">Tono cálido y vibrante con excelente presencia visual para mezclas comerciales.</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-giallo.jpg" alt="Ranunculus Giallo" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-giallo.jpg" alt="Ranunculus Elegance Giallo" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="r3Meta">Ranúnculo</div>
+            <div class="flower-meta" id="r3Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Giallo</h4>
+            <div class="flower-text" id="r3Text">Amarillo luminoso, fresco y comercialmente atractivo para programas coloridos.</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image crop-flower"><img src="ranunculus-hot-pink.jpg" alt="Ranunculus Hot Pink" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-hot-pink.jpg" alt="Ranunculus Elegance Hot Pink" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="r4Meta">Ranúnculo</div>
+            <div class="flower-meta" id="r4Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Hot Pink</h4>
+            <div class="flower-text" id="r4Text">Color intenso y contemporáneo, muy atractivo para bouquets de alto impacto.</div>
+          </div>
+        </article>
+
+        <article class="card mini-card">
+          <div class="mini-image crop-flower"><img src="ranunculus-rosso.jpg" alt="Ranunculus Elegance Rosso" /></div>
+          <div class="flower-copy">
+            <div class="flower-meta" id="r5Meta">Ranúnculo Elegance®</div>
+            <h4 class="flower-title">Rosso</h4>
+            <div class="flower-text" id="r5Text">Rojo profundo con fuerza comercial y gran valor para fechas especiales.</div>
+          </div>
+        </article>
+
+        <article class="card mini-card">
+          <div class="mini-image crop-flower"><img src="ranunculus-viola.jpg" alt="Ranunculus Elegance Viola" /></div>
+          <div class="flower-copy">
+            <div class="flower-meta" id="r6Meta">Ranúnculo Elegance®</div>
+            <h4 class="flower-title">Viola</h4>
+            <div class="flower-text" id="r6Text">Matiz violeta distintivo, elegante y diferenciador dentro de una oferta premium.</div>
           </div>
         </article>
       </div>
 
       <h3 class="subsection-title" id="aneTitle">Anémonas Mistral® Plus</h3>
-      <div class="proj-pill-purple" id="aneProj">Proyección 2026: 135.000 varas (total)</div>
       <div class="varieties-grid">
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-panda.jpg" alt="Anemone Panda" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-panda.jpg" alt="Anemone Mistral Panda" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="a1Meta">Anémona</div>
+            <div class="flower-meta" id="a1Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Panda</h4>
+            <div class="flower-text" id="a1Text">Blanco contrastado con centro oscuro, elegante y muy valorado en arreglos refinados.</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-blu.jpg" alt="Anemone Blu" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-blu.jpg" alt="Anemone Mistral Blu" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="a2Meta">Anémona</div>
+            <div class="flower-meta" id="a2Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Blu</h4>
+            <div class="flower-text" id="a2Text">Color profundo y distintivo que aporta carácter y sofisticación a la colección.</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-fucsia.jpg" alt="Anemone Fucsia" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="a3Meta">Anémona</div>
+            <div class="flower-meta" id="a3Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Fucsia</h4>
+            <div class="flower-text" id="a3Text">Vibrante y expresiva, ideal para programas que buscan impacto visual y frescura.</div>
           </div>
         </article>
+
         <article class="card mini-card">
-          <div class="mini-image crop-anemone"><img src="anemone-rosso.jpg" alt="Anemone Rosso" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-rosso.jpg" alt="Anemone Mistral Rosso" /></div>
           <div class="flower-copy">
-            <div class="flower-meta" id="a4Meta">Anémona</div>
+            <div class="flower-meta" id="a4Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Rosso</h4>
+            <div class="flower-text" id="a4Text">Rojo intenso y elegante, con gran potencial comercial en programas premium.</div>
           </div>
         </article>
       </div>
@@ -725,15 +800,19 @@
     <section id="location">
       <div class="eyebrow" id="locEyebrow">Ubicación</div>
       <h2 class="section-title" id="locTitle">Osorno, sur de Chile</h2>
+
       <div class="grid2">
         <article class="card">
           <div class="section-text" id="locText">
-            Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago, en una de las zonas agrícolas más atractivas de Chile.
+            Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago,
+            en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar
+            una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.
           </div>
           <div class="pill" id="locPill">Santiago ↔ Osorno • 950 km / 590 millas</div>
         </article>
+
         <div class="map-block">
-          <img src="mapa-osorno.jpg" alt="Mapa" />
+          <img src="mapa-osorno.jpg" alt="Map showing Santiago and Osorno in Chile" />
         </div>
       </div>
     </section>
@@ -741,31 +820,54 @@
     <section id="status">
       <div class="eyebrow" id="statusEyebrow">Estado actual</div>
       <h2 class="section-title" id="statusTitle">Estado actual del campo</h2>
+      <div class="section-copy" id="statusText">
+        Avance actual del proyecto y vistas del campo en desarrollo.
+      </div>
+
       <div class="grid3">
-        <article class="card status-card"><img src="campo1.jpg" alt="Campo" /></article>
-        <article class="card status-card"><img src="campo2.jpg" alt="Campo" /></article>
-        <article class="card status-card"><img src="campo3.jpg" alt="Campo" /></article>
+        <article class="card status-card">
+          <img src="current-status-1.jpg" alt="Vista actual del campo 1" />
+        </article>
+
+        <article class="card status-card">
+          <img src="current-status-2.jpg" alt="Vista actual del campo 2" />
+        </article>
+
+        <article class="card status-card">
+          <img src="current-status-3.jpg" alt="Vista actual del campo 3" />
+        </article>
       </div>
     </section>
 
     <section id="contact">
       <div class="eyebrow" id="contactEyebrow">Contacto</div>
       <h2 class="section-title" id="contactTitle">Contactos comerciales</h2>
+      <div class="section-copy" id="contactText">
+        Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.
+      </div>
+
       <div class="contacts">
         <article class="card contactA">
           <div class="contact-profile">
-            <div class="contact-photo"><img src="josegallardo.jpg" alt="José" /></div>
+            <div class="contact-photo">
+              <img src="josegallardo.jpg" alt="José Ignacio Gallardo" />
+            </div>
             <div>
+              <div class="contact-top">Chile / USA</div>
               <div class="contact-name">José Ignacio Gallardo</div>
               <div class="contact-role" id="roleA">Gerente General</div>
             </div>
           </div>
           <div class="contact-phone">+56 9 9331 7224</div>
         </article>
+
         <article class="card contactB">
           <div class="contact-profile">
-            <div class="contact-photo"><img src="enriquecova.jpg" alt="Enrique" /></div>
+            <div class="contact-photo">
+              <img src="enriquecova.jpg" alt="Enrique Covarrubias" />
+            </div>
             <div>
+              <div class="contact-top">Chile / USA</div>
               <div class="contact-name">Enrique Covarrubias</div>
               <div class="contact-role" id="roleB">Vice Presidente de Marketing & Ventas</div>
             </div>
@@ -775,7 +877,9 @@
       </div>
     </section>
 
-    <div class="footer" id="footerText">Flores de los Lagos · Osorno, Chile</div>
+    <div class="footer" id="footerText">
+      Flores de los Lagos · Osorno, Chile
+    </div>
   </main>
 
   <script>
@@ -787,12 +891,23 @@
         navLocation: "Ubicación",
         navStatus: "Estado actual",
         navContact: "Contacto",
+
         heroEyebrow: "Producción floral premium",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Flores premium del sur de Chile",
         heroText: "Peonías, ranúnculos y anémonas cultivadas en Osorno para importadores, wholesalers y programas retail que buscan calidad, identidad y abastecimiento de contraestación.",
         cta1: "Ver variedades",
         cta2: "Contactar",
+
+        hero1Meta: "Peonía",
+        hero1Name: "Sarah Bernhardt",
+        hero2Meta: "Peonía",
+        hero2Name: "Jacorma",
+        hero3Meta: "Ranúnculo Elegance®",
+        hero3Name: "Bianco",
+        hero4Meta: "Anémona Mistral® Plus",
+        hero4Name: "Fucsia",
+
         stat1Label: "Superficie actual",
         stat1Value: "5,0 ha",
         stat1Sub: "plantadas hoy",
@@ -801,31 +916,90 @@
         stat2Sub: "expansión proyectada",
         stat3Label: "Ubicación",
         stat3Value: "Osorno",
-        stat3Sub: "950 km desde Santiago",
+        stat3Sub: "950 km / 590 millas desde Santiago",
+
         storyEyebrow: "Nuestra propuesta",
         storyTitle: "Producción premium desde el sur de Chile",
-        storyText: "Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado, calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium.",
-        p1Note: "45.000 varas (2026) | 360.000 varas (2027)",
-        p2Note: "5.000 varas (2026) | 45.000 varas (2027)",
-        ranProj: "Proyección 2026: 405.000 varas (total)",
-        aneProj: "Proyección 2026: 135.000 varas (total)",
+        storyText: "Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado, calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium. El objetivo es escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas, manteniendo una propuesta enfocada en calidad, consistencia y valor comercial.",
+
+        flowersEyebrow: "Colección",
+        flowersTitle: "Variedades principales",
+
+        peoTitle: "Peonías",
+        p1Meta: "Peonía",
+        p1Text: "Variedad clásica premium, altamente valorada para bodas, diseño floral y programas de alto nivel.",
+        p1Note: "2027: 360.000 stems",
+        p2Meta: "Peonía",
+        p2Text: "Variedad de color intenso y excelente presencia comercial para una propuesta premium diferenciada.",
+        p2Note: "2027: 45.000 stems",
+
+        ranTitle: "Ranúnculos Elegance®",
+        r1Meta: "Ranúnculo Elegance®",
+        r1Text: "Blanco puro y elegante, ideal para diseño floral sofisticado y programas premium.",
+        r2Meta: "Ranúnculo Elegance®",
+        r2Text: "Tono cálido y vibrante con excelente presencia visual para mezclas comerciales.",
+        r3Meta: "Ranúnculo Elegance®",
+        r3Text: "Amarillo luminoso, fresco y comercialmente atractivo para programas coloridos.",
+        r4Meta: "Ranúnculo Elegance®",
+        r4Text: "Color intenso y contemporáneo, muy atractivo para bouquets de alto impacto.",
+        r5Meta: "Ranúnculo Elegance®",
+        r5Text: "Rojo profundo con fuerza comercial y gran valor para fechas especiales.",
+        r6Meta: "Ranúnculo Elegance®",
+        r6Text: "Matiz violeta distintivo, elegante y diferenciador dentro de una oferta premium.",
+
+        aneTitle: "Anémonas Mistral® Plus",
+        a1Meta: "Anémona Mistral® Plus",
+        a1Text: "Blanco contrastado con centro oscuro, elegante y muy valorado en arreglos refinados.",
+        a2Meta: "Anémona Mistral® Plus",
+        a2Text: "Color profundo y distintivo que aporta carácter y sofisticación a la colección.",
+        a3Meta: "Anémona Mistral® Plus",
+        a3Text: "Vibrante y expresiva, ideal para programas que buscan impacto visual y frescura.",
+        a4Meta: "Anémona Mistral® Plus",
+        a4Text: "Rojo intenso y elegante, con gran potencial comercial en programas premium.",
+
+        locEyebrow: "Ubicación",
+        locTitle: "Osorno, sur de Chile",
+        locText: "Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago, en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.",
+        locPill: "Santiago ↔ Osorno • 950 km / 590 millas",
+
+        statusEyebrow: "Estado actual",
+        statusTitle: "Estado actual del campo",
+        statusText: "Avance actual del proyecto y vistas del campo en desarrollo.",
+
+        contactEyebrow: "Contacto",
+        contactTitle: "Contactos comerciales",
+        contactText: "Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.",
+        
         roleA: "Gerente General",
         roleB: "Vice Presidente de Marketing & Ventas",
+
         footerText: "Flores de los Lagos · Osorno, Chile"
       },
+
       en: {
         brandTag: "Southern Chile",
         navStory: "Story",
         navFlowers: "Varieties",
         navLocation: "Location",
-        navStatus: "Current Status",
+        navStatus: "Current status",
         navContact: "Contact",
+
         heroEyebrow: "Premium floral production",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Premium flowers from Southern Chile",
-        heroText: "Peonies, ranunculus and anemones grown in Osorno for counter-seasonal supply.",
+        heroText: "Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail programs seeking quality, identity and counter-seasonal supply.",
         cta1: "View varieties",
         cta2: "Contact us",
+
+        hero1Meta: "Peony",
+        hero1Name: "Sarah Bernhardt",
+        hero2Meta: "Peony",
+        hero2Name: "Jacorma",
+        hero3Meta: "Elegance® Ranunculus",
+        hero3Name: "Bianco",
+        hero4Meta: "Mistral® Plus Anemone",
+        hero4Name: "Fucsia",
+
         stat1Label: "Current footprint",
         stat1Value: "5.0 ha",
         stat1Sub: "planted today",
@@ -834,16 +1008,63 @@
         stat2Sub: "projected expansion",
         stat3Label: "Location",
         stat3Value: "Osorno",
-        stat3Sub: "950 km from Santiago",
+        stat3Sub: "950 km / 590 miles from Santiago",
+
         storyEyebrow: "Our positioning",
         storyTitle: "Premium production from Southern Chile",
-        storyText: "Located in Osorno, our project combines climate and quality to serve international markets.",
-        p1Note: "45,000 stems (2026) | 360,000 stems (2027)",
-        p2Note: "5,000 stems (2026) | 45,000 stems (2027)",
-        ranProj: "2026 Projection: 405,000 stems (total)",
-        aneProj: "2026 Projection: 135,000 stems (total)",
+        storyText: "Located in Osorno, in Chile’s Los Lagos Region, our project combines climate, growing quality and long-term vision to serve international markets with premium flowers. The goal is to scale from 5.0 hectares planted today to 50.0 hectares while maintaining a proposition focused on quality, consistency and commercial value.",
+
+        flowersEyebrow: "Collection",
+        flowersTitle: "Main varieties",
+
+        peoTitle: "Peonies",
+        p1Meta: "Peony",
+        p1Text: "Classic premium variety, highly valued for weddings, floral design and high-end programs.",
+        p1Note: "2027: 360,000 stems",
+        p2Meta: "Peony",
+        p2Text: "Strong color and excellent commercial presence for a differentiated premium proposition.",
+        p2Note: "2027: 45,000 stems",
+
+        ranTitle: "Elegance® Ranunculus",
+        r1Meta: "Elegance® Ranunculus",
+        r1Text: "Pure white and elegant, ideal for refined floral design and premium programs.",
+        r2Meta: "Elegance® Ranunculus",
+        r2Text: "Warm and vibrant tone with excellent visual presence for commercial mixes.",
+        r3Meta: "Elegance® Ranunculus",
+        r3Text: "Bright yellow, fresh and commercially attractive for colorful programs.",
+        r4Meta: "Elegance® Ranunculus",
+        r4Text: "Bold and contemporary color, highly attractive for high-impact bouquets.",
+        r5Meta: "Elegance® Ranunculus",
+        r5Text: "Deep red with commercial strength and strong value for special occasions.",
+        r6Meta: "Elegance® Ranunculus",
+        r6Text: "Distinctive violet tone, elegant and differentiating within a premium offering.",
+
+        aneTitle: "Mistral® Plus Anemones",
+        a1Meta: "Mistral® Plus Anemone",
+        a1Text: "White contrast with dark center, elegant and highly valued in refined arrangements.",
+        a2Meta: "Mistral® Plus Anemone",
+        a2Text: "Deep distinctive color that adds character and sophistication to the collection.",
+        a3Meta: "Mistral® Plus Anemone",
+        a3Text: "Vibrant and expressive, ideal for programs seeking visual impact and freshness.",
+        a4Meta: "Mistral® Plus Anemone",
+        a4Text: "Intense red and elegant presence, with strong premium commercial potential.",
+
+        locEyebrow: "Location",
+        locTitle: "Osorno, Southern Chile",
+        locText: "Our production is located in Osorno, 950 km south of Santiago, in one of Chile’s most attractive agricultural regions. This location supports a differentiated premium flower proposition with origin identity and export potential.",
+        locPill: "Santiago ↔ Osorno • 950 km / 590 miles",
+
+        statusEyebrow: "Current Status",
+        statusTitle: "Current field status",
+        statusText: "Current project progress and field views.",
+
+        contactEyebrow: "Contact",
+        contactTitle: "Commercial contacts",
+        contactText: "For importers, distributors and potential commercial partners in Chile and the United States.",
+        
         roleA: "CEO",
         roleB: "Vice President of Marketing & Sales",
+
         footerText: "Flores de los Lagos · Osorno, Chile"
       }
     };
