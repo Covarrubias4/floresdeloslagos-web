@@ -228,6 +228,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      transition:transform .25s ease;
     }
 
     .hero-label{
@@ -342,6 +343,7 @@
     .mini-image{
       height:220px;
       background:#f6f1f7;
+      overflow:hidden;
     }
 
     .flower-image img,
@@ -350,6 +352,17 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      transition:transform .25s ease;
+    }
+
+    .crop-flower img{
+      object-position:84% center;
+      transform:scale(1.55);
+    }
+
+    .crop-anemone img{
+      object-position:82% center;
+      transform:scale(1.58);
     }
 
     .flower-copy{
@@ -424,6 +437,30 @@
       font-family:Inter,Arial,sans-serif;
     }
 
+    .contact-profile{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:16px;
+    }
+
+    .contact-photo{
+      width:86px;
+      height:86px;
+      border-radius:50%;
+      overflow:hidden;
+      flex:0 0 86px;
+      border:2px solid rgba(255,255,255,.28);
+      box-shadow:0 10px 24px rgba(0,0,0,.15);
+      background:rgba(255,255,255,.12);
+    }
+
+    .contact-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
     .contact-name{
       font-size:32px;
       margin-bottom:8px;
@@ -462,6 +499,16 @@
 
       .topbar-inner{align-items:flex-start}
       .peony-grid{justify-content:stretch}
+    }
+
+    @media (max-width:640px){
+      .contact-profile{
+        align-items:flex-start;
+      }
+
+      .contact-name{
+        font-size:28px;
+      }
     }
   </style>
 </head>
@@ -527,7 +574,7 @@
               </div>
             </div>
 
-            <div class="hero-image">
+            <div class="hero-image crop-flower">
               <img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" />
               <div class="hero-label">
                 <small id="hero3Meta">Ranúnculo Elegance®</small>
@@ -535,7 +582,7 @@
               </div>
             </div>
 
-            <div class="hero-image">
+            <div class="hero-image crop-anemone">
               <img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" />
               <div class="hero-label">
                 <small id="hero4Meta">Anémona Mistral® Plus</small>
@@ -616,7 +663,7 @@
       <h3 class="subsection-title" id="ranTitle">Ranúnculos Elegance®</h3>
       <div class="varieties-grid">
         <article class="card mini-card">
-          <div class="mini-image"><img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r1Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Bianco</h4>
@@ -625,7 +672,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="ranunculus-clementine.jpg" alt="Ranunculus Elegance Clementine" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-clementine.jpg" alt="Ranunculus Elegance Clementine" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r2Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Clementine</h4>
@@ -634,7 +681,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="ranunculus-giallo.jpg" alt="Ranunculus Elegance Giallo" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-giallo.jpg" alt="Ranunculus Elegance Giallo" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r3Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Giallo</h4>
@@ -643,7 +690,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="ranunculus-hot-pink.jpg" alt="Ranunculus Elegance Hot Pink" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-hot-pink.jpg" alt="Ranunculus Elegance Hot Pink" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r4Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Hot Pink</h4>
@@ -652,7 +699,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="ranunculus-rosso.jpg" alt="Ranunculus Elegance Rosso" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-rosso.jpg" alt="Ranunculus Elegance Rosso" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r5Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Rosso</h4>
@@ -661,7 +708,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="ranunculus-viola.jpg" alt="Ranunculus Elegance Viola" /></div>
+          <div class="mini-image crop-flower"><img src="ranunculus-viola.jpg" alt="Ranunculus Elegance Viola" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="r6Meta">Ranúnculo Elegance®</div>
             <h4 class="flower-title">Viola</h4>
@@ -673,7 +720,7 @@
       <h3 class="subsection-title" id="aneTitle">Anémonas Mistral® Plus</h3>
       <div class="varieties-grid">
         <article class="card mini-card">
-          <div class="mini-image"><img src="anemone-panda.jpg" alt="Anemone Mistral Panda" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-panda.jpg" alt="Anemone Mistral Panda" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a1Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Panda</h4>
@@ -682,7 +729,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="anemone-blu.jpg" alt="Anemone Mistral Blu" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-blu.jpg" alt="Anemone Mistral Blu" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a2Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Blu</h4>
@@ -691,7 +738,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a3Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Fucsia</h4>
@@ -700,7 +747,7 @@
         </article>
 
         <article class="card mini-card">
-          <div class="mini-image"><img src="anemone-rosso.jpg" alt="Anemone Mistral Rosso" /></div>
+          <div class="mini-image crop-anemone"><img src="anemone-rosso.jpg" alt="Anemone Mistral Rosso" /></div>
           <div class="flower-copy">
             <div class="flower-meta" id="a4Meta">Anémona Mistral® Plus</div>
             <h4 class="flower-title">Rosso</h4>
@@ -764,14 +811,28 @@
 
       <div class="contacts">
         <article class="card contactA">
-          <div class="contact-top">Chile / USA</div>
-          <div class="contact-name">José Ignacio Gallardo</div>
+          <div class="contact-profile">
+            <div class="contact-photo">
+              <img src="josegallardo.jpg" alt="José Ignacio Gallardo" />
+            </div>
+            <div>
+              <div class="contact-top">Chile / USA</div>
+              <div class="contact-name">José Ignacio Gallardo</div>
+            </div>
+          </div>
           <div class="contact-phone">+56 9 9331 7224</div>
         </article>
 
         <article class="card contactB">
-          <div class="contact-top">Chile / USA</div>
-          <div class="contact-name">Enrique Covarrubias</div>
+          <div class="contact-profile">
+            <div class="contact-photo">
+              <img src="enriquecova.jpg" alt="Enrique Covarrubias" />
+            </div>
+            <div>
+              <div class="contact-top">Chile / USA</div>
+              <div class="contact-name">Enrique Covarrubias</div>
+            </div>
+          </div>
           <div class="contact-phone">+56 9 8501 2942</div>
         </article>
       </div>
