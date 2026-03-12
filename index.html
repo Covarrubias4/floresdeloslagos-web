@@ -369,7 +369,7 @@
       transform:scale(1.16);
     }
 
-    /* máscara suave para ocultar la franja izquierda con texto de origen */
+    /* máscara suave eliminada */
     .crop-flower::before,
     .crop-anemone::before{
       content:"";
@@ -380,12 +380,7 @@
       width:22%;
       z-index:2;
       pointer-events:none;
-      background:linear-gradient(
-        90deg,
-        rgba(246,241,247,.96) 0%,
-        rgba(246,241,247,.88) 48%,
-        rgba(246,241,247,0) 100%
-      );
+      background: none;
     }
 
     .hero-image.crop-flower::before,
@@ -398,12 +393,7 @@
       width:22%;
       z-index:2;
       pointer-events:none;
-      background:linear-gradient(
-        90deg,
-        rgba(243,237,245,.96) 0%,
-        rgba(243,237,245,.88) 48%,
-        rgba(243,237,245,0) 100%
-      );
+      background: none;
     }
 
     .flower-copy{
