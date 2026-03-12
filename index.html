@@ -355,16 +355,16 @@
       transition:transform .25s ease;
     }
 
-    /* RECORTE PARA ESCONDER EL TEXTO NEGRO DE FONDO
-       en ranúnculos y anémonas que vienen con la franja izquierda */
+    /* menos zoom para ranúnculos */
     .crop-flower img{
-      object-position:84% center;
-      transform:scale(1.55);
+      object-position:78% center;
+      transform:scale(1.28);
     }
 
+    /* menos zoom para anémonas */
     .crop-anemone img{
-      object-position:82% center;
-      transform:scale(1.58);
+      object-position:78% center;
+      transform:scale(1.30);
     }
 
     .flower-copy{
@@ -439,6 +439,30 @@
       font-family:Inter,Arial,sans-serif;
     }
 
+    .contact-profile{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:16px;
+    }
+
+    .contact-photo{
+      width:86px;
+      height:86px;
+      border-radius:50%;
+      overflow:hidden;
+      flex:0 0 86px;
+      border:2px solid rgba(255,255,255,.28);
+      box-shadow:0 10px 24px rgba(0,0,0,.15);
+      background:rgba(255,255,255,.12);
+    }
+
+    .contact-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
     .contact-name{
       font-size:32px;
       margin-bottom:8px;
@@ -478,6 +502,16 @@
       .topbar-inner{align-items:flex-start}
       .peony-grid{justify-content:stretch}
     }
+
+    @media (max-width:640px){
+      .contact-profile{
+        align-items:flex-start;
+      }
+
+      .contact-name{
+        font-size:28px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -510,7 +544,7 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow" id="heroEyebrow">Premium floral production</div>
+          <div class="eyebrow" id="heroEyebrow">Producción floral premium</div>
           <h1 id="heroTitle1">Flores de los Lagos</h1>
           <div class="hero-sub" id="heroTitle2">Flores premium del sur de Chile</div>
           <div class="hero-text" id="heroText">
@@ -583,7 +617,7 @@
     </section>
 
     <section id="story">
-      <div class="eyebrow" id="storyEyebrow">About</div>
+      <div class="eyebrow" id="storyEyebrow">Nuestra propuesta</div>
       <h2 class="section-title" id="storyTitle">Producción premium desde el sur de Chile</h2>
       <div class="section-copy" id="storyText">
         Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado,
@@ -594,7 +628,7 @@
     </section>
 
     <section id="flowers">
-      <div class="eyebrow" id="flowersEyebrow">Collection</div>
+      <div class="eyebrow" id="flowersEyebrow">Colección</div>
       <h2 class="section-title" id="flowersTitle">Variedades principales</h2>
 
       <h3 class="subsection-title" id="peoTitle">Peonías</h3>
@@ -726,8 +760,8 @@
     </section>
 
     <section id="location">
-      <div class="eyebrow" id="locEyebrow">Location</div>
-      <h2 class="section-title" id="locTitle">Osorno, Southern Chile</h2>
+      <div class="eyebrow" id="locEyebrow">Ubicación</div>
+      <h2 class="section-title" id="locTitle">Osorno, sur de Chile</h2>
 
       <div class="grid2">
         <article class="card">
@@ -736,7 +770,7 @@
             en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar
             una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.
           </div>
-          <div class="pill" id="locPill">Santiago ↔ Osorno • 950 km / 590 miles</div>
+          <div class="pill" id="locPill">Santiago ↔ Osorno • 950 km / 590 millas</div>
         </article>
 
         <div class="map-block">
@@ -746,7 +780,7 @@
     </section>
 
     <section id="status">
-      <div class="eyebrow" id="statusEyebrow">Current Status</div>
+      <div class="eyebrow" id="statusEyebrow">Estado actual</div>
       <h2 class="section-title" id="statusTitle">Estado actual del campo</h2>
       <div class="section-copy" id="statusText">
         Avance actual del proyecto y vistas del campo en desarrollo.
@@ -771,7 +805,7 @@
     </section>
 
     <section id="contact">
-      <div class="eyebrow" id="contactEyebrow">Contact</div>
+      <div class="eyebrow" id="contactEyebrow">Contacto</div>
       <h2 class="section-title" id="contactTitle">Contactos comerciales</h2>
       <div class="section-copy" id="contactText">
         Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.
@@ -779,14 +813,28 @@
 
       <div class="contacts">
         <article class="card contactA">
-          <div class="contact-top">Chile / USA</div>
-          <div class="contact-name">José Ignacio Gallardo</div>
+          <div class="contact-profile">
+            <div class="contact-photo">
+              <img src="josegallardo.jpg" alt="José Ignacio Gallardo" />
+            </div>
+            <div>
+              <div class="contact-top">Chile / USA</div>
+              <div class="contact-name">José Ignacio Gallardo</div>
+            </div>
+          </div>
           <div class="contact-phone">+56 9 9331 7224</div>
         </article>
 
         <article class="card contactB">
-          <div class="contact-top">Chile / USA</div>
-          <div class="contact-name">Enrique Covarrubias</div>
+          <div class="contact-profile">
+            <div class="contact-photo">
+              <img src="enriquecova.jpg" alt="Enrique Covarrubias" />
+            </div>
+            <div>
+              <div class="contact-top">Chile / USA</div>
+              <div class="contact-name">Enrique Covarrubias</div>
+            </div>
+          </div>
           <div class="contact-phone">+56 9 8501 2942</div>
         </article>
       </div>
@@ -807,7 +855,7 @@
         navStatus: "Estado actual",
         navContact: "Contacto",
 
-        heroEyebrow: "Premium floral production",
+        heroEyebrow: "Producción floral premium",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Flores premium del sur de Chile",
         heroText: "Peonías, ranúnculos y anémonas cultivadas en Osorno para importadores, wholesalers y programas retail que buscan calidad, identidad y abastecimiento de contraestación.",
@@ -833,11 +881,11 @@
         stat3Value: "Osorno",
         stat3Sub: "950 km / 590 millas desde Santiago",
 
-        storyEyebrow: "About",
+        storyEyebrow: "Nuestra propuesta",
         storyTitle: "Producción premium desde el sur de Chile",
         storyText: "Ubicado en Osorno, en la Región de Los Lagos, nuestro proyecto combina clima privilegiado, calidad de cultivo y una visión de largo plazo para abastecer mercados internacionales con flores premium. El objetivo es escalar desde 5,0 hectáreas actualmente plantadas hasta 50,0 hectáreas, manteniendo una propuesta enfocada en calidad, consistencia y valor comercial.",
 
-        flowersEyebrow: "Collection",
+        flowersEyebrow: "Colección",
         flowersTitle: "Variedades principales",
 
         peoTitle: "Peonías",
@@ -872,19 +920,19 @@
         a4Meta: "Anémona Mistral® Plus",
         a4Text: "Rojo intenso y elegante, con gran potencial comercial en programas premium.",
 
-        locEyebrow: "Location",
-        locTitle: "Osorno, Southern Chile",
+        locEyebrow: "Ubicación",
+        locTitle: "Osorno, sur de Chile",
         locText: "Nuestra producción se encuentra en Osorno, a 950 km al sur de Santiago, en una de las zonas agrícolas más atractivas de Chile. Esta ubicación permite desarrollar una propuesta diferenciada de flores premium con identidad de origen y potencial de exportación.",
-        locPill: "Santiago ↔ Osorno • 950 km / 590 miles",
+        locPill: "Santiago ↔ Osorno • 950 km / 590 millas",
 
-        statusEyebrow: "Current Status",
+        statusEyebrow: "Estado actual",
         statusTitle: "Estado actual del campo",
         statusText: "Avance actual del proyecto y vistas del campo en desarrollo.",
         s1: "Vista actual 1",
         s2: "Vista actual 2",
         s3: "Vista actual 3",
 
-        contactEyebrow: "Contact",
+        contactEyebrow: "Contacto",
         contactTitle: "Contactos comerciales",
         contactText: "Para importadores, distribuidores y potenciales socios comerciales en Chile y Estados Unidos.",
 
@@ -925,7 +973,7 @@
         stat3Value: "Osorno",
         stat3Sub: "950 km / 590 miles from Santiago",
 
-        storyEyebrow: "About",
+        storyEyebrow: "Our positioning",
         storyTitle: "Premium production from Southern Chile",
         storyText: "Located in Osorno, in Chile’s Los Lagos Region, our project combines climate, growing quality and long-term vision to serve international markets with premium flowers. The goal is to scale from 5.0 hectares planted today to 50.0 hectares while maintaining a proposition focused on quality, consistency and commercial value.",
 
