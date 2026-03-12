@@ -355,6 +355,8 @@
       transition:transform .25s ease;
     }
 
+    /* RECORTE PARA ESCONDER EL TEXTO NEGRO DE FONDO
+       en ranúnculos y anémonas que vienen con la franja izquierda */
     .crop-flower img{
       object-position:84% center;
       transform:scale(1.55);
@@ -437,30 +439,6 @@
       font-family:Inter,Arial,sans-serif;
     }
 
-    .contact-profile{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:16px;
-    }
-
-    .contact-photo{
-      width:86px;
-      height:86px;
-      border-radius:50%;
-      overflow:hidden;
-      flex:0 0 86px;
-      border:2px solid rgba(255,255,255,.28);
-      box-shadow:0 10px 24px rgba(0,0,0,.15);
-      background:rgba(255,255,255,.12);
-    }
-
-    .contact-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
     .contact-name{
       font-size:32px;
       margin-bottom:8px;
@@ -499,16 +477,6 @@
 
       .topbar-inner{align-items:flex-start}
       .peony-grid{justify-content:stretch}
-    }
-
-    @media (max-width:640px){
-      .contact-profile{
-        align-items:flex-start;
-      }
-
-      .contact-name{
-        font-size:28px;
-      }
     }
   </style>
 </head>
@@ -811,28 +779,14 @@
 
       <div class="contacts">
         <article class="card contactA">
-          <div class="contact-profile">
-            <div class="contact-photo">
-              <img src="josegallardo.jpg" alt="José Ignacio Gallardo" />
-            </div>
-            <div>
-              <div class="contact-top">Chile / USA</div>
-              <div class="contact-name">José Ignacio Gallardo</div>
-            </div>
-          </div>
+          <div class="contact-top">Chile / USA</div>
+          <div class="contact-name">José Ignacio Gallardo</div>
           <div class="contact-phone">+56 9 9331 7224</div>
         </article>
 
         <article class="card contactB">
-          <div class="contact-profile">
-            <div class="contact-photo">
-              <img src="enriquecova.jpg" alt="Enrique Covarrubias" />
-            </div>
-            <div>
-              <div class="contact-top">Chile / USA</div>
-              <div class="contact-name">Enrique Covarrubias</div>
-            </div>
-          </div>
+          <div class="contact-top">Chile / USA</div>
+          <div class="contact-name">Enrique Covarrubias</div>
           <div class="contact-phone">+56 9 8501 2942</div>
         </article>
       </div>
