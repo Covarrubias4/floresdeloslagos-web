@@ -9,22 +9,23 @@
     content="Premium flowers from Southern Chile. Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail floral programs."
   />
   <style>
-    /* PALETA DE LUJO BASADA EXACTAMENTE EN EL LOGO CIRUELA/VINO */
+    /* PALETA DE COLORES EXACTA DE LA IMAGEN ADJUNTA */
     :root{
-      --bg: #FBF9F9; /* Un blanco crema con un levísimo toque cálido/rosado */
+      --bg: #FAFAFA; /* Un gris muy claro/blanco para que resalten los colores */
       --card: #ffffff;
-      --text: #2a1f24; /* Casi negro, pero con un subtono del logo */
-      --muted: #7a6a71; /* Gris oscuro sofisticado teñido del color principal */
+      --text: #3d3d3d; /* Gris oscuro para lectura cómoda */
+      --muted: #737373; /* Gris medio para textos secundarios */
       
-      /* COLORES EXTRAÍDOS DEL LOGO */
-      --brand-main: #7A2041; /* El color ciruela/vino vibrante del logo */
-      --brand-dark: #420f20; /* Una versión muy oscura del logo para títulos legibles */
-      --brand-light: #f2e6ea; /* Fondo claro derivado del logo para acentos */
+      /* COLORES EXTRAÍDOS DEL LOGO Y LA PRESENTACIÓN */
+      --brand-purple: #794c8a; /* Morado exacto de la flor de loto y el círculo */
+      --brand-purple-dark: #4b2d56; /* Versión más oscura para títulos grandes (mejor legibilidad) */
       
-      --sage: #707b58; /* Verde salvia oscuro (combina perfecto con el ciruela) */
-      --line: #e8dadd; /* Líneas muy sutiles teñidas del color principal */
-      --shadow: 0 16px 40px rgba(122, 32, 65, 0.08); /* Sombra con el tinte del logo */
-      --radius: 12px; /* Bordes menos redondeados, más serios */
+      --brand-green: #9eb27c; /* Verde exacto del círculo inferior izquierdo */
+      --brand-green-dark: #7b8e5c; /* Verde oscurecido para textos pequeños y hover */
+      
+      --line: #ebe6ec; /* Líneas sutiles teñidas ligeramente de morado */
+      --shadow: 0 16px 40px rgba(121, 76, 138, 0.08); /* Sombra con tinte morado */
+      --radius: 12px;
       --max: 1180px;
     }
 
@@ -52,7 +53,7 @@
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(251, 249, 249, 0.95);
+      background:rgba(250, 250, 250, 0.95);
       backdrop-filter:blur(16px);
       border-bottom:1px solid var(--line);
     }
@@ -72,9 +73,9 @@
       gap:16px;
     }
 
-    /* EL LOGO EN LA BARRA */
+    /* LOGO */
     .brand-logo{
-      height: 44px; /* Tamaño ideal para que se note bien el diseño circular */
+      height: 48px; /* Ajustado para que se vea perfectamente el logo subido */
       width: auto;
     }
 
@@ -90,7 +91,7 @@
     .brand-text strong{
       display:block;
       font:400 26px/1 Georgia,"Times New Roman",serif;
-      color:var(--brand-dark); /* Color oscuro del logo */
+      color:var(--brand-purple-dark);
       letter-spacing: -0.5px;
     }
 
@@ -109,7 +110,7 @@
       transition:.3s ease;
     }
 
-    nav a:hover{color:var(--brand-main)} /* Hover con el color del logo */
+    nav a:hover{color:var(--brand-purple)}
 
     .lang{
       display:flex;
@@ -130,8 +131,8 @@
     }
 
     .lang button.active{
-      border-color: var(--brand-main);
-      color:var(--brand-main);
+      border-color: var(--brand-purple);
+      color:var(--brand-purple);
     }
 
     .hero{
@@ -145,9 +146,10 @@
       align-items:center;
     }
 
+    /* EYEBROWS CON EL VERDE DE LA MARCA */
     .eyebrow{
       display:inline-block;
-      color:var(--sage);
+      color:var(--brand-green-dark);
       font-size:11px;
       letter-spacing:3px;
       text-transform:uppercase;
@@ -165,13 +167,13 @@
     h1{
       font-size:clamp(46px,7vw,76px);
       line-height:1.05;
-      color:var(--brand-dark);
+      color:var(--brand-purple-dark);
       margin-bottom:16px;
     }
 
     .hero-sub{
       font:400 clamp(24px,3.5vw,36px)/1.2 Georgia,"Times New Roman",serif;
-      color:var(--brand-main); /* El subtítulo destaca en el color ciruela vibrante */
+      color:var(--brand-purple);
       margin-bottom:24px;
     }
 
@@ -202,24 +204,27 @@
       transition:.3s ease;
     }
 
+    /* BOTONES COMBINANDO MORADO Y VERDE */
     .btn-primary{
-      background:var(--brand-main); /* Botón principal con el color del logo */
+      background:var(--brand-purple);
       color:#fff;
-      border: 1px solid var(--brand-main);
-      box-shadow: 0 8px 24px rgba(122, 32, 65, 0.25);
+      border: 1px solid var(--brand-purple);
+      box-shadow: 0 8px 24px rgba(121, 76, 138, 0.25);
     }
     .btn-primary:hover{
-      background:var(--brand-dark);
-      border-color: var(--brand-dark);
+      background:var(--brand-purple-dark);
+      border-color: var(--brand-purple-dark);
     }
 
     .btn-secondary{
-      background:transparent;
-      color:var(--brand-main);
-      border:1px solid var(--brand-main);
+      background:var(--brand-green);
+      color:#fff;
+      border:1px solid var(--brand-green);
+      box-shadow: 0 8px 24px rgba(158, 178, 124, 0.25);
     }
     .btn-secondary:hover{
-      background:var(--brand-light);
+      background:var(--brand-green-dark);
+      border-color:var(--brand-green-dark);
     }
 
     .hero-card{
@@ -258,7 +263,7 @@
       right:0;
       bottom:0;
       padding:24px 20px 16px;
-      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(66,15,32,0.85) 100%); /* Degradado teñido del logo */
+      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(75,45,86,0.85) 100%);
       color:#fff;
       z-index:3;
     }
@@ -320,9 +325,10 @@
       font-family:Inter,Arial,sans-serif;
     }
 
+    /* NÚMEROS ESTADÍSTICOS EN MORADO */
     .stat-value{
       font:400 48px/1.05 Georgia,"Times New Roman",serif;
-      color:var(--brand-main); /* Números grandes en el color del logo */
+      color:var(--brand-purple);
       margin-bottom:8px;
     }
 
@@ -341,7 +347,7 @@
       font-size:clamp(36px,5vw,48px);
       line-height:1.1;
       margin-bottom:20px;
-      color:var(--brand-dark);
+      color:var(--brand-purple-dark);
     }
 
     .section-copy{
@@ -355,7 +361,7 @@
 
     .subsection-title{
       font-size:32px;
-      color:var(--brand-dark);
+      color:var(--brand-purple-dark);
       margin:40px 0 16px;
       border-bottom: 1px solid var(--line);
       padding-bottom: 16px;
@@ -370,7 +376,7 @@
     .mini-image{
       position:relative;
       height:260px;
-      background:var(--brand-light); /* Fondo en caso de que tarde en cargar */
+      background:#f4f0f5;
       overflow:hidden;
     }
 
@@ -403,23 +409,14 @@
     .flower-title{
       font-size:24px;
       margin-bottom:12px;
-      color:var(--brand-dark);
+      color:var(--brand-purple-dark);
       font-weight: 400;
     }
 
-    .flower-note{
-      margin-top:16px;
-      color:var(--brand-main);
-      font-weight:600;
-      font-size:13px;
-      font-family:Inter,Arial,sans-serif;
-      letter-spacing: 0.5px;
-    }
-
-    /* Píldoras con el color principal de la marca */
+    /* PÍLDORAS CON LOS COLORES DE LA MARCA */
     .proj-pill-purple{
       display:inline-block;
-      background:var(--brand-main);
+      background:var(--brand-purple);
       color:#fff;
       font-size:11px;
       font-weight:600;
@@ -429,14 +426,14 @@
       font-family:Inter,Arial,sans-serif;
       text-transform:uppercase;
       letter-spacing:2px;
-      box-shadow: 0 4px 12px rgba(122, 32, 65, 0.2);
+      box-shadow: 0 4px 12px rgba(121, 76, 138, 0.25);
     }
 
     .proj-pill-flower{
       display:inline-block;
-      background:var(--brand-light);
-      border: 1px solid var(--line);
-      color:var(--brand-dark);
+      background:#fff;
+      border: 1px solid var(--brand-purple);
+      color:var(--brand-purple);
       font-size:11px;
       font-weight:600;
       padding:6px 12px;
@@ -465,9 +462,8 @@
 
     .pill{
       display:inline-block;
-      background:transparent;
-      border: 1px solid var(--brand-main);
-      color:var(--brand-main);
+      background:var(--brand-green);
+      color:#fff;
       font-weight:600;
       font-size: 12px;
       padding:8px 16px;
@@ -490,9 +486,9 @@
       display:block;
     }
 
-    /* CONTACTOS CON EL COLOR DEL LOGO */
+    /* CONTACTOS EN DEGRADADO MORADO DE LA MARCA */
     .contactA, .contactB{
-      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-main) 100%);
+      background: linear-gradient(135deg, var(--brand-purple-dark) 0%, var(--brand-purple) 100%);
       color:#fff;
       border: none;
     }
@@ -583,7 +579,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <img src="image_203b7e.png" alt="Flores de los Lagos Logo" class="brand-logo">
+        <img src="logo.jpg" alt="Flores de los Lagos Logo" class="brand-logo">
         <div class="brand-text">
           <small id="brandTag">Southern Chile</small>
           <strong>Flores de los Lagos</strong>
