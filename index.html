@@ -9,7 +9,7 @@
     content="Premium flowers from Southern Chile. Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail floral programs."
   />
   <style>
-    /* PALETA DE COLORES EXACTA DE LA IMAGEN ADJUNTA */
+    /* PALETA DE COLORES EXACTA DE LA PRESENTACIÓN */
     :root{
       --bg: #FAFAFA; /* Un gris muy claro/blanco para que resalten los colores */
       --card: #ffffff;
@@ -17,10 +17,10 @@
       --muted: #737373; /* Gris medio para textos secundarios */
       
       /* COLORES EXTRAÍDOS DEL LOGO Y LA PRESENTACIÓN */
-      --brand-purple: #794c8a; /* Morado exacto de la flor de loto y el círculo */
-      --brand-purple-dark: #4b2d56; /* Versión más oscura para títulos grandes (mejor legibilidad) */
+      --brand-purple: #794c8a; /* Morado exacto de la flor de loto */
+      --brand-purple-dark: #4b2d56; /* Versión más oscura para títulos grandes */
       
-      --brand-green: #9eb27c; /* Verde exacto del círculo inferior izquierdo */
+      --brand-green: #9eb27c; /* Verde exacto del diseño */
       --brand-green-dark: #7b8e5c; /* Verde oscurecido para textos pequeños y hover */
       
       --line: #ebe6ec; /* Líneas sutiles teñidas ligeramente de morado */
@@ -70,29 +70,12 @@
     .brand{
       display:flex;
       align-items:center;
-      gap:16px;
     }
 
-    /* LOGO */
+    /* LOGO AJUSTADO (Más grande al no tener texto al lado) */
     .brand-logo{
-      height: 48px; /* Ajustado para que se vea perfectamente el logo subido */
+      height: 56px; 
       width: auto;
-    }
-
-    .brand-text small{
-      display:block;
-      color:var(--muted);
-      font-size:10px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      margin-bottom:4px;
-    }
-
-    .brand-text strong{
-      display:block;
-      font:400 26px/1 Georgia,"Times New Roman",serif;
-      color:var(--brand-purple-dark);
-      letter-spacing: -0.5px;
     }
 
     nav{
@@ -146,7 +129,6 @@
       align-items:center;
     }
 
-    /* EYEBROWS CON EL VERDE DE LA MARCA */
     .eyebrow{
       display:inline-block;
       color:var(--brand-green-dark);
@@ -204,7 +186,6 @@
       transition:.3s ease;
     }
 
-    /* BOTONES COMBINANDO MORADO Y VERDE */
     .btn-primary{
       background:var(--brand-purple);
       color:#fff;
@@ -325,7 +306,6 @@
       font-family:Inter,Arial,sans-serif;
     }
 
-    /* NÚMEROS ESTADÍSTICOS EN MORADO */
     .stat-value{
       font:400 48px/1.05 Georgia,"Times New Roman",serif;
       color:var(--brand-purple);
@@ -413,7 +393,6 @@
       font-weight: 400;
     }
 
-    /* PÍLDORAS CON LOS COLORES DE LA MARCA */
     .proj-pill-purple{
       display:inline-block;
       background:var(--brand-purple);
@@ -486,7 +465,6 @@
       display:block;
     }
 
-    /* CONTACTOS EN DEGRADADO MORADO DE LA MARCA */
     .contactA, .contactB{
       background: linear-gradient(135deg, var(--brand-purple-dark) 0%, var(--brand-purple) 100%);
       color:#fff;
@@ -580,17 +558,13 @@
     <div class="container topbar-inner">
       <div class="brand">
         <img src="logo.jpg" alt="Flores de los Lagos Logo" class="brand-logo">
-        <div class="brand-text">
-          <small id="brandTag">Southern Chile</small>
-          <strong>Flores de los Lagos</strong>
-        </div>
       </div>
 
       <nav>
-        <a href="#story" id="navStory">Historia</a>
-        <a href="#flowers" id="navFlowers">Variedades</a>
-        <a href="#location" id="navLocation">Ubicación</a>
-        <a href="#status" id="navStatus">Estado actual</a>
+        <a href="#story" id="navStory">Visión</a>
+        <a href="#flowers" id="navFlowers">Colección</a>
+        <a href="#location" id="navLocation">Logística</a>
+        <a href="#status" id="navStatus">Operaciones</a>
         <a href="#contact" id="navContact">Contacto</a>
 
         <div class="lang">
@@ -636,14 +610,14 @@
             <div class="hero-image crop-flower">
               <img src="ranunculus-bianco.jpg" alt="Ranunculus Elegance Bianco" />
               <div class="hero-label">
-                <small id="hero3Meta">Ranúnculo Elegance®</small>
+                <small id="hero3Meta">Ranúnculo</small>
                 <strong id="hero3Name">Bianco</strong>
               </div>
             </div>
             <div class="hero-image crop-anemone">
               <img src="anemone-fucsia.jpg" alt="Anemone Mistral Fucsia" />
               <div class="hero-label">
-                <small id="hero4Meta">Anémona Mistral® Plus</small>
+                <small id="hero4Meta">Anémona</small>
                 <strong id="hero4Name">Fucsia</strong>
               </div>
             </div>
@@ -835,9 +809,9 @@
           <div class="contact-profile">
             <div class="contact-photo"><img src="josegallardo.jpg" alt="José Ignacio Gallardo" /></div>
             <div>
-              <div class="contact-top">Chile / USA Desk</div>
+              <div class="contact-top" id="contactDesk1">Oficina Chile / USA</div>
               <div class="contact-name">José Ignacio Gallardo</div>
-              <div class="contact-role" id="roleA">Chief Executive Officer</div>
+              <div class="contact-role" id="roleA">Gerente General</div>
             </div>
           </div>
           <div class="contact-phone">+56 9 9331 7224</div>
@@ -846,9 +820,9 @@
           <div class="contact-profile">
             <div class="contact-photo"><img src="enriquecova.jpg" alt="Enrique Covarrubias" /></div>
             <div>
-              <div class="contact-top">Chile / USA Desk</div>
+              <div class="contact-top" id="contactDesk2">Oficina Chile / USA</div>
               <div class="contact-name">Enrique Covarrubias</div>
-              <div class="contact-role" id="roleB">VP of Sales & Marketing</div>
+              <div class="contact-role" id="roleB">VP de Ventas y Marketing</div>
             </div>
           </div>
           <div class="contact-phone">+56 9 8501 2942</div>
@@ -857,25 +831,35 @@
     </section>
 
     <div class="footer" id="footerText">
-      © Flores de los Lagos · Premium Export · Osorno, Chile
+      © Flores de los Lagos · Exportación Premium · Osorno, Chile
     </div>
   </main>
 
   <script>
     const content = {
       es: {
-        brandTag: "Southern Chile",
         navStory: "Visión",
         navFlowers: "Colección",
         navLocation: "Logística",
         navStatus: "Operaciones",
         navContact: "Contacto",
+        
         heroEyebrow: "Producción floral premium",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Flores de lujo de contraestación",
         heroText: "Peonías, ranúnculos y anémonas cultivadas bajo rigurosos estándares en Osorno, Chile. Diseñadas para importadores, wholesalers y programas florales boutique que exigen excelencia, consistencia y una cadena de suministro impecable.",
         cta1: "Ver colección",
         cta2: "Contactar",
+        
+        hero1Meta: "Peonía",
+        hero1Name: "Sarah Bernhardt",
+        hero2Meta: "Peonía",
+        hero2Name: "Jacorma",
+        hero3Meta: "Ranúnculo",
+        hero3Name: "Bianco",
+        hero4Meta: "Anémona",
+        hero4Name: "Fucsia",
+
         stat1Label: "Superficie operativa",
         stat1Value: "5,0 ha",
         stat1Sub: "cultivo de precisión actual",
@@ -885,17 +869,24 @@
         stat3Label: "Origen",
         stat3Value: "Osorno",
         stat3Sub: "950 km de rutas de exportación aéreas",
+        
         storyEyebrow: "Nuestra propuesta de valor",
         storyTitle: "Terroir privilegiado, calidad de exportación",
         storyText: "Ubicado estratégicamente en Osorno, Región de Los Lagos, nuestro entorno agrícola ofrece condiciones agronómicas inmejorables: suelos volcánicos ricos y una amplitud térmica ideal. Esto se traduce en flores con cabezas más grandes, colores más definidos y una vida en florero superior, cumpliendo con los estándares de los mercados internacionales más exigentes.",
+        
         flowersEyebrow: "Catálogo",
         flowersTitle: "Colección Exclusiva",
+        
+        peoTitle: "Línea de Peonías",
         p1Meta: "Peonía",
         p1Text: "Variedad clásica de lujo, altamente valorada para diseño floral premium y bodas.",
-        p1ProjectionLabel: "Capacidad", p1ProjectionValue: "45.000 (2026) | 360.000 (2027) varas",
+        p1ProjectionLabel: "Capacidad", 
+        p1ProjectionValue: "45.000 (2026) | 360.000 (2027) varas",
         p2Meta: "Peonía",
         p2Text: "Coloración profunda e intensa, garantizando una presencia imponente en florero.",
-        p2ProjectionLabel: "Capacidad", p2ProjectionValue: "5.000 (2026) | 45.000 (2027) varas",
+        p2ProjectionLabel: "Capacidad", 
+        p2ProjectionValue: "5.000 (2026) | 45.000 (2027) varas",
+        
         ranTitle: "Ranúnculos Elegance®",
         ranProj: "Volumen proyectado 2026: 405.000 varas (Línea completa)",
         r1Meta: "Ranúnculo", r1Text: "Blanco puro inmaculado, estándar de elegancia.",
@@ -904,39 +895,57 @@
         r4Meta: "Ranúnculo", r4Text: "Tonalidad audaz y saturación perfecta.",
         r5Meta: "Ranúnculo", r5Text: "Rojo carmín profundo, ideal para mercado de lujo.",
         r6Meta: "Ranúnculo", r6Text: "Violeta aristocrático, exclusividad garantizada.",
+        
         aneTitle: "Anémonas Mistral® Plus",
         aneProj: "Volumen proyectado 2026: 135.000 varas (Línea completa)",
         a1Meta: "Anémona", a1Text: "Centro oscuro dramático sobre blanco nieve.",
         a2Meta: "Anémona", a2Text: "Azul violáceo único, aporta profundidad.",
         a3Meta: "Anémona", a3Text: "Magnetismo visual y excelente apertura.",
         a4Meta: "Anémona", a4Text: "Rojo vibrante, presencia escultórica clásica.",
+        
         locEyebrow: "Centro de Operaciones",
         locTitle: "Logística y Exportación",
         locText: "Ubicados a 950 km del principal hub logístico de Santiago, garantizamos un control estricto de la cadena de frío desde el corte hasta el embarque. Nuestra conectividad asegura que la calidad y frescura intactas del sur de Chile lleguen sin fricciones a Norteamérica y otros mercados globales.",
         locPill: "Cadena de Frío Garantizada • SCL Hub Aéreo",
+        
         statusEyebrow: "Transparencia Operativa",
         statusTitle: "Progreso de Cultivos",
         statusText: "Monitoreo constante e infraestructura agrícola de última generación.",
+        
         contactEyebrow: "Partnerships",
         contactTitle: "Dirección Comercial",
         contactText: "Abiertos a establecer relaciones sólidas con importadores y mayoristas que priorizan el estándar de lujo.",
-        roleA: "Chief Executive Officer",
-        roleB: "VP of Sales & Marketing",
-        footerText: "© Flores de los Lagos · Premium Export · Osorno, Chile"
+        
+        contactDesk1: "Oficina Chile / USA",
+        contactDesk2: "Oficina Chile / USA",
+        roleA: "Gerente General",
+        roleB: "VP de Ventas y Marketing",
+        
+        footerText: "© Flores de los Lagos · Exportación Premium · Osorno, Chile"
       },
       en: {
-        brandTag: "Southern Chile",
         navStory: "Vision",
         navFlowers: "Collection",
         navLocation: "Logistics",
         navStatus: "Operations",
         navContact: "Contact",
+        
         heroEyebrow: "Premium Floral Production",
         heroTitle1: "Flores de los Lagos",
         heroTitle2: "Counter-seasonal luxury blooms",
         heroText: "Peonies, ranunculus, and anemones cultivated under strict standards in Osorno, Chile. Designed for importers, wholesalers, and boutique floral programs demanding excellence, consistency, and a flawless supply chain.",
         cta1: "View collection",
         cta2: "Contact us",
+
+        hero1Meta: "Peony",
+        hero1Name: "Sarah Bernhardt",
+        hero2Meta: "Peony",
+        hero2Name: "Jacorma",
+        hero3Meta: "Ranunculus",
+        hero3Name: "Bianco",
+        hero4Meta: "Anemone",
+        hero4Name: "Fucsia",
+        
         stat1Label: "Operational Footprint",
         stat1Value: "5.0 ha",
         stat1Sub: "current precision farming",
@@ -946,17 +955,24 @@
         stat3Label: "Origin",
         stat3Value: "Osorno",
         stat3Sub: "950 km to major air cargo hubs",
+        
         storyEyebrow: "Our Value Proposition",
         storyTitle: "Privileged terroir, export-grade quality",
         storyText: "Strategically located in Osorno, Los Lagos Region, our agricultural environment offers unparalleled agronomic conditions: rich volcanic soils and an ideal thermal amplitude. This translates to flowers with larger heads, more vibrant colors, and superior vase life, meeting the standards of the most demanding international markets.",
+        
         flowersEyebrow: "Catalog",
         flowersTitle: "Exclusive Collection",
+        
+        peoTitle: "Peony Collection",
         p1Meta: "Peony",
         p1Text: "Classic luxury variety, highly valued for weddings, floral design and high-end programs.",
-        p1Note: "Capacity: 45,000 (2026) | 360,000 (2027) stems",
+        p1ProjectionLabel: "Capacity", 
+        p1ProjectionValue: "45,000 (2026) | 360,000 (2027) stems",
         p2Meta: "Peony",
         p2Text: "Deep, intense coloration guaranteeing a commanding presence in any vase.",
-        p2Note: "Capacity: 5,000 (2026) | 45,000 (2027) stems",
+        p2ProjectionLabel: "Capacity", 
+        p2ProjectionValue: "5,000 (2026) | 45,000 (2027) stems",
+        
         ranTitle: "Elegance® Ranunculus",
         ranProj: "2026 Projected Volume: 405,000 stems (Full Line)",
         r1Meta: "Ranunculus", r1Text: "Immaculate pure white, the standard of elegance.",
@@ -965,24 +981,32 @@
         r4Meta: "Ranunculus", r4Text: "Bold hue with perfect saturation.",
         r5Meta: "Ranunculus", r5Text: "Deep carmine red, ideal for the luxury market.",
         r6Meta: "Ranunculus", r6Text: "Aristocratic violet, guaranteed exclusivity.",
+        
         aneTitle: "Mistral® Plus Anemones",
         aneProj: "2026 Projected Volume: 135,000 stems (Full Line)",
         a1Meta: "Anemone", a1Text: "Dramatic dark center against snow white.",
         a2Meta: "Anemone", a2Text: "Unique purplish-blue that adds deep character.",
         a3Meta: "Anemone", a3Text: "Visual magnetism and excellent bloom opening.",
         a4Meta: "Anemone", a4Text: "Vibrant red, a classic sculptural presence.",
+        
         locEyebrow: "Operations Hub",
         locTitle: "Logistics & Export",
         locText: "Located 950 km from Santiago's main logistics hub, we guarantee strict cold-chain control from cut to shipment. Our connectivity ensures the intact quality and freshness of Southern Chile reaches North America and other global markets without friction.",
         locPill: "Cold-Chain Integrity • SCL Air Cargo Hub",
+        
         statusEyebrow: "Operational Transparency",
         statusTitle: "Crop Progress",
         statusText: "Constant monitoring and state-of-the-art agricultural infrastructure.",
+        
         contactEyebrow: "Partnerships",
         contactTitle: "Commercial Desk",
         contactText: "Open to building strong relationships with importers and wholesalers who prioritize luxury standards.",
+        
+        contactDesk1: "Chile / USA Desk",
+        contactDesk2: "Chile / USA Desk",
         roleA: "Chief Executive Officer",
         roleB: "VP of Sales & Marketing",
+        
         footerText: "© Flores de los Lagos · Premium Export · Osorno, Chile"
       }
     };
