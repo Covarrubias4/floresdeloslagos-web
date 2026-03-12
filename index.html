@@ -9,17 +9,21 @@
     content="Premium flowers from Southern Chile. Peonies, ranunculus and anemones grown in Osorno for importers, wholesalers and retail floral programs."
   />
   <style>
-    /* PALETA DE LUJO MINIMALISTA (Inspirada en la foto adjunta) */
+    /* PALETA DE LUJO BASADA EXACTAMENTE EN EL LOGO CIRUELA/VINO */
     :root{
-      --bg: #F9F8F6; /* Un blanco crema muy sutil y cálido */
+      --bg: #FBF9F9; /* Un blanco crema con un levísimo toque cálido/rosado */
       --card: #ffffff;
-      --text: #1a151b; /* Casi negro, contraste elegante */
-      --muted: #665f68; /* Gris oscuro sofisticado */
-      --purple: #5b3663; /* Púrpura apagado/Ciruela */
-      --purple-dark: #2a162e; /* Púrpura casi negro para títulos */
-      --sage: #707b58; /* Verde salvia oscuro */
-      --line: #ebe6e4; /* Líneas muy sutiles */
-      --shadow: 0 16px 40px rgba(0,0,0,0.04); /* Sombra difusa y suave */
+      --text: #2a1f24; /* Casi negro, pero con un subtono del logo */
+      --muted: #7a6a71; /* Gris oscuro sofisticado teñido del color principal */
+      
+      /* COLORES EXTRAÍDOS DEL LOGO */
+      --brand-main: #7A2041; /* El color ciruela/vino vibrante del logo */
+      --brand-dark: #420f20; /* Una versión muy oscura del logo para títulos legibles */
+      --brand-light: #f2e6ea; /* Fondo claro derivado del logo para acentos */
+      
+      --sage: #707b58; /* Verde salvia oscuro (combina perfecto con el ciruela) */
+      --line: #e8dadd; /* Líneas muy sutiles teñidas del color principal */
+      --shadow: 0 16px 40px rgba(122, 32, 65, 0.08); /* Sombra con el tinte del logo */
       --radius: 12px; /* Bordes menos redondeados, más serios */
       --max: 1180px;
     }
@@ -31,7 +35,7 @@
       font-family:Inter,Arial,sans-serif;
       color:var(--text);
       background-color: var(--bg);
-      -webkit-font-smoothing: antialiased; /* Suaviza las fuentes */
+      -webkit-font-smoothing: antialiased;
     }
 
     img{display:block;max-width:100%}
@@ -43,14 +47,14 @@
       padding:0 22px;
     }
 
-    /* TOPBAR MÁS LIMPIA */
+    /* TOPBAR */
     .topbar{
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(249, 248, 246, 0.95);
+      background:rgba(251, 249, 249, 0.95);
       backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(0,0,0,0.05);
+      border-bottom:1px solid var(--line);
     }
 
     .topbar-inner{
@@ -68,11 +72,10 @@
       gap:16px;
     }
 
-    .brand-mark{
-      width:40px;
-      height:40px;
-      border-radius:4px; /* Un logo más estructurado */
-      background: var(--purple-dark);
+    /* EL LOGO EN LA BARRA */
+    .brand-logo{
+      height: 44px; /* Tamaño ideal para que se note bien el diseño circular */
+      width: auto;
     }
 
     .brand-text small{
@@ -87,7 +90,7 @@
     .brand-text strong{
       display:block;
       font:400 26px/1 Georgia,"Times New Roman",serif;
-      color:var(--purple-dark);
+      color:var(--brand-dark); /* Color oscuro del logo */
       letter-spacing: -0.5px;
     }
 
@@ -106,7 +109,7 @@
       transition:.3s ease;
     }
 
-    nav a:hover{color:var(--purple)}
+    nav a:hover{color:var(--brand-main)} /* Hover con el color del logo */
 
     .lang{
       display:flex;
@@ -127,8 +130,8 @@
     }
 
     .lang button.active{
-      border-color: var(--line);
-      color:var(--text);
+      border-color: var(--brand-main);
+      color:var(--brand-main);
     }
 
     .hero{
@@ -142,7 +145,6 @@
       align-items:center;
     }
 
-    /* EYEBROWS DE LUJO: Mayúsculas, pequeñas, muy espaciadas */
     .eyebrow{
       display:inline-block;
       color:var(--sage);
@@ -156,20 +158,20 @@
     h1,h2,h3,h4{
       margin:0;
       font-family:Georgia,"Times New Roman",serif;
-      font-weight:400; /* Pesos más ligeros se ven más elegantes */
+      font-weight:400;
       letter-spacing: -0.5px;
     }
 
     h1{
       font-size:clamp(46px,7vw,76px);
       line-height:1.05;
-      color:var(--purple-dark);
+      color:var(--brand-dark);
       margin-bottom:16px;
     }
 
     .hero-sub{
       font:400 clamp(24px,3.5vw,36px)/1.2 Georgia,"Times New Roman",serif;
-      color:var(--purple);
+      color:var(--brand-main); /* El subtítulo destaca en el color ciruela vibrante */
       margin-bottom:24px;
     }
 
@@ -189,7 +191,6 @@
       margin-bottom:32px;
     }
 
-    /* BOTONES ESTILO BOUTIQUE */
     .btn{
       display:inline-block;
       font-weight:600;
@@ -197,27 +198,28 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       padding:16px 28px;
-      border-radius:4px; /* Bordes rectos con ligera curva */
+      border-radius:4px;
       transition:.3s ease;
     }
 
     .btn-primary{
-      background:var(--purple-dark);
+      background:var(--brand-main); /* Botón principal con el color del logo */
       color:#fff;
-      border: 1px solid var(--purple-dark);
+      border: 1px solid var(--brand-main);
+      box-shadow: 0 8px 24px rgba(122, 32, 65, 0.25);
     }
     .btn-primary:hover{
-      background:var(--purple);
-      border-color: var(--purple);
+      background:var(--brand-dark);
+      border-color: var(--brand-dark);
     }
 
     .btn-secondary{
       background:transparent;
-      color:var(--purple-dark);
-      border:1px solid var(--line);
+      color:var(--brand-main);
+      border:1px solid var(--brand-main);
     }
     .btn-secondary:hover{
-      border-color: var(--purple-dark);
+      background:var(--brand-light);
     }
 
     .hero-card{
@@ -236,7 +238,7 @@
       position:relative;
       border-radius:var(--radius);
       overflow:hidden;
-      height:260px; /* Fotos ligeramente más altas */
+      height:260px;
       background:#f0ebeb;
     }
 
@@ -256,7 +258,7 @@
       right:0;
       bottom:0;
       padding:24px 20px 16px;
-      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20,10,22,0.85) 100%);
+      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(66,15,32,0.85) 100%); /* Degradado teñido del logo */
       color:#fff;
       z-index:3;
     }
@@ -293,10 +295,9 @@
       justify-content:start;
     }
 
-    /* TARJETAS SIN BORDE DURO, SÓLO SOMBRA ELEGANTE */
     .card{
       background:var(--card);
-      border:none;
+      border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:32px;
@@ -321,7 +322,7 @@
 
     .stat-value{
       font:400 48px/1.05 Georgia,"Times New Roman",serif;
-      color:var(--purple-dark);
+      color:var(--brand-main); /* Números grandes en el color del logo */
       margin-bottom:8px;
     }
 
@@ -340,7 +341,7 @@
       font-size:clamp(36px,5vw,48px);
       line-height:1.1;
       margin-bottom:20px;
-      color:var(--purple-dark);
+      color:var(--brand-dark);
     }
 
     .section-copy{
@@ -354,7 +355,7 @@
 
     .subsection-title{
       font-size:32px;
-      color:var(--purple-dark);
+      color:var(--brand-dark);
       margin:40px 0 16px;
       border-bottom: 1px solid var(--line);
       padding-bottom: 16px;
@@ -369,7 +370,7 @@
     .mini-image{
       position:relative;
       height:260px;
-      background:#f7f5f6;
+      background:var(--brand-light); /* Fondo en caso de que tarde en cargar */
       overflow:hidden;
     }
 
@@ -394,20 +395,6 @@
       object-position:72% center;
       transform:scale(1.16);
     }
-    .crop-flower::before,
-    .crop-anemone::before,
-    .hero-image.crop-flower::before,
-    .hero-image.crop-anemone::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
-      width:22%;
-      z-index:2;
-      pointer-events:none;
-      background: none;
-    }
 
     .flower-copy{
       padding:24px;
@@ -416,23 +403,23 @@
     .flower-title{
       font-size:24px;
       margin-bottom:12px;
-      color:var(--purple-dark);
+      color:var(--brand-dark);
       font-weight: 400;
     }
 
     .flower-note{
       margin-top:16px;
-      color:var(--purple);
+      color:var(--brand-main);
       font-weight:600;
       font-size:13px;
       font-family:Inter,Arial,sans-serif;
       letter-spacing: 0.5px;
     }
 
-    /* Píldoras de Proyección Refinadas */
+    /* Píldoras con el color principal de la marca */
     .proj-pill-purple{
       display:inline-block;
-      background:var(--purple-dark);
+      background:var(--brand-main);
       color:#fff;
       font-size:11px;
       font-weight:600;
@@ -442,13 +429,14 @@
       font-family:Inter,Arial,sans-serif;
       text-transform:uppercase;
       letter-spacing:2px;
+      box-shadow: 0 4px 12px rgba(122, 32, 65, 0.2);
     }
 
     .proj-pill-flower{
       display:inline-block;
-      background:var(--bg);
+      background:var(--brand-light);
       border: 1px solid var(--line);
-      color:var(--purple-dark);
+      color:var(--brand-dark);
       font-size:11px;
       font-weight:600;
       padding:6px 12px;
@@ -461,7 +449,7 @@
 
     .map-block{
       background:#fff;
-      border:none;
+      border:1px solid var(--line);
       border-radius:var(--radius);
       padding:0;
       box-shadow:var(--shadow);
@@ -478,8 +466,8 @@
     .pill{
       display:inline-block;
       background:transparent;
-      border: 1px solid var(--line);
-      color:var(--text);
+      border: 1px solid var(--brand-main);
+      color:var(--brand-main);
       font-weight:600;
       font-size: 12px;
       padding:8px 16px;
@@ -502,10 +490,11 @@
       display:block;
     }
 
-    /* CONTACTOS MÁS ELEGANTES (Gris oscuro/Plum casi negro en vez de gradientes brillantes) */
+    /* CONTACTOS CON EL COLOR DEL LOGO */
     .contactA, .contactB{
-      background: var(--purple-dark);
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-main) 100%);
       color:#fff;
+      border: none;
     }
 
     .contact-top{
@@ -530,7 +519,7 @@
       border-radius:50%;
       overflow:hidden;
       flex:0 0 80px;
-      border:1px solid rgba(255,255,255,.2);
+      border:2px solid rgba(255,255,255,.2);
     }
 
     .contact-photo img{
@@ -548,7 +537,7 @@
 
     .contact-role{
       font-size:14px;
-      opacity:.8;
+      opacity:.9;
       font-family:Inter,Arial,sans-serif;
       letter-spacing: 0.5px;
     }
@@ -559,7 +548,7 @@
       font-family:Inter,Arial,sans-serif;
       letter-spacing: 1px;
       padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
     .footer{
@@ -594,7 +583,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="brand-mark"></div>
+        <img src="image_203b7e.png" alt="Flores de los Lagos Logo" class="brand-logo">
         <div class="brand-text">
           <small id="brandTag">Southern Chile</small>
           <strong>Flores de los Lagos</strong>
@@ -894,7 +883,7 @@
         stat1Label: "Superficie operativa",
         stat1Value: "5,0 ha",
         stat1Sub: "cultivo de precisión actual",
-        stat2Label: "Meta",
+        stat2Label: "Escalabilidad",
         stat2Value: "50,0 ha",
         stat2Sub: "expansión proyectada",
         stat3Label: "Origen",
